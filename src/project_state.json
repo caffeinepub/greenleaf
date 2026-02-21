@@ -1,0 +1,281 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "E-commerce website for GreenLeaf online plant store with premium animated UI, smooth scrolling, parallax effects, and modern micro-interactions. Frontend-only implementation with static product data and browser-based cart.",
+  "architectural_notes": [
+    "Frontend-only implementation with no backend or database",
+    "Static product data hardcoded in code files",
+    "Browser-based cart using local storage",
+    "Glassmorphism design with soft green/beige color palette",
+    "Animation library for smooth parallax and scroll effects",
+    "Responsive design with mobile-first approach",
+    "No authentication or payment processing"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Hero section full-width plant photograph with soft natural lighting, lush greenery filling frame (hero-plants.dim_1920x1080.png)\n- Floating monstera leaf illustration with transparent background for hero animation (monstera-float.dim_400x400.png)\n- Small potted succulent plant photo on white background (succulent-1.dim_400x400.png)\n- Fiddle leaf fig tree in ceramic pot photo on white background (fiddle-leaf.dim_400x400.png)\n- Snake plant in modern pot photo on white background (snake-plant.dim_400x400.png)\n- Pothos trailing plant photo on white background (pothos.dim_400x400.png)\n- Peace lily plant with white flower photo on white background (peace-lily.dim_400x400.png)\n- Rubber plant in terracotta pot photo on white background (rubber-plant.dim_400x400.png)\n- ZZ plant in minimal pot photo on white background (zz-plant.dim_400x400.png)\n- Calathea ornata plant photo on white background (calathea.dim_400x400.png)\n- Bird of paradise plant photo on white background (bird-paradise.dim_400x400.png)\n- String of pearls succulent photo on white background (string-pearls.dim_400x400.png)\n- Aloe vera plant photo on white background (aloe-vera.dim_400x400.png)\n- Boston fern hanging plant photo on white background (boston-fern.dim_400x400.png)\n- Cactus variety collection photo on white background (cactus-mix.dim_400x400.png)\n- Water droplet icon illustration in soft green (icon-water.dim_64x64.png)\n- Sun icon illustration in warm yellow (icon-sun.dim_64x64.png)\n- Leaf growth icon illustration in green (icon-growth.dim_64x64.png)\n- Eco-friendly badge icon illustration (icon-eco.dim_64x64.png)\n- Free shipping truck icon illustration (icon-shipping.dim_64x64.png)\n- Plant care guide book icon illustration (icon-care-guide.dim_64x64.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-home-page-with-full-screen-animated-hero-section-featuring-cinematic-plant-visuals-slow-floating-animation-on-plants-leaves-smooth-fade-and-slide-text-animation-subtle-background-gradient-movement-and-scroll-indicator-animation",
+      "title": "Create home page with full-screen animated hero section featuring cinematic plant visuals, slow floating animation on plants/leaves, smooth fade and slide text animation, subtle background gradient movement, and scroll indicator animation",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-featured-categories-section-with-hover-animations-where-cards-lift-slightly-on-hover-implement-image-zoom-with-soft-shadow-expansion-and-include-smooth-hover-transitions-on-buttons",
+      "title": "Add featured categories section with hover animations where cards lift slightly on hover, implement image zoom with soft shadow expansion, and include smooth hover transitions on buttons",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-best-selling-plants-carousel-with-smooth-sliding-transitions-and-navigation-controls",
+      "title": "Implement best-selling plants carousel with smooth sliding transitions and navigation controls",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-benefits-section-with-animated-icons-that-trigger-on-scroll-into-view",
+      "title": "Create benefits section with animated icons that trigger on scroll into view",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-testimonials-section-with-automatic-sliding-carousel-animation",
+      "title": "Add testimonials section with automatic sliding carousel animation",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-newsletter-signup-section-with-soft-motion-effects-and-input-animations",
+      "title": "Create newsletter signup section with soft motion effects and input animations",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-shop-page-with-animated-product-grid-that-reveals-items-with-fade-and-upward-motion-on-scroll-using-staggered-timing-for-sequential-appearance",
+      "title": "Build shop page with animated product grid that reveals items with fade and upward motion on scroll, using staggered timing for sequential appearance",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-filter-sidebar-with-sliding-interaction-that-smoothly-expands-and-collapses-including-animated-filter-selection-with-visual-feedback",
+      "title": "Add filter sidebar with sliding interaction that smoothly expands and collapses, including animated filter selection with visual feedback",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-hover-preview-effects-on-product-cards-with-image-zoom-and-shadow-expansion",
+      "title": "Implement hover preview effects on product cards with image zoom and shadow expansion",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-smooth-pagination-transitions-between-product-pages",
+      "title": "Add smooth pagination transitions between product pages",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-product-detail-page-with-image-gallery-featuring-smooth-transitions-between-images-animated-care-indicators-for-water-and-sunlight-with-icon-animations-expandable-accordion-sections-and-related-products-slider",
+      "title": "Create product detail page with image gallery featuring smooth transitions between images, animated care indicators for water and sunlight with icon animations, expandable accordion sections, and related products slider",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-plant-care-guide-page-with-blog-layout-scroll-triggered-animations-for-article-entries-and-sticky-reading-progress-bar-that-tracks-scroll-position",
+      "title": "Build plant care guide page with blog layout, scroll-triggered animations for article entries, and sticky reading progress bar that tracks scroll position",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-slide-in-cart-drawer-animation-that-opens-from-the-side-with-smooth-motion-including-add-to-cart-animation-where-plant-item-visually-moves-to-cart-icon-and-smooth-quantity-update-transitions",
+      "title": "Implement slide-in cart drawer animation that opens from the side with smooth motion, including add-to-cart animation where plant item visually moves to cart icon, and smooth quantity update transitions",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-checkout-page-interface-with-smooth-form-transitions-and-validation-animations",
+      "title": "Create checkout page interface with smooth form transitions and validation animations",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-sticky-transparent-navbar-that-adds-blur-background-on-scroll-with-animated-menu-underline-following-active-page-and-smooth-fullscreen-mobile-menu-transition",
+      "title": "Build sticky transparent navbar that adds blur background on scroll, with animated menu underline following active page, and smooth fullscreen mobile menu transition",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-smooth-inertia-scrolling-throughout-the-site-with-parallax-scrolling-between-sections-where-plants-float-slightly-while-scrolling-and-sections-transition-seamlessly-without-hard-cuts",
+      "title": "Implement smooth inertia scrolling throughout the site with parallax scrolling between sections where plants float slightly while scrolling and sections transition seamlessly without hard cuts",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-wishlist-heart-animation-with-smooth-toggle-interaction-that-responds-to-user-clicks",
+      "title": "Add wishlist heart animation with smooth toggle interaction that responds to user clicks",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-smooth-page-to-page-transitions-using-fade-or-slide-effects-between-route-changes",
+      "title": "Implement smooth page-to-page transitions using fade or slide effects between route changes",
+      "reqIds": [
+        "REQ-20"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-loading-animation-using-leaf-or-growing-plant-concept-that-appears-during-page-transitions-or-data-loading",
+      "title": "Create loading animation using leaf or growing plant concept that appears during page transitions or data loading",
+      "reqIds": [
+        "REQ-21"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-minimal-luxury-eco-aesthetic-with-soft-green-and-earthy-tones-beige-backgrounds-glassmorphism-effects-soft-shadows-clean-grid-system-with-large-breathing-space-and-apple-quality-polish-combined-with-organic-natural-motion",
+      "title": "Apply minimal luxury eco aesthetic with soft green and earthy tones, beige backgrounds, glassmorphism effects, soft shadows, clean grid system with large breathing space, and Apple-quality polish combined with organic natural motion",
+      "reqIds": [
+        "REQ-22"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-static-product-data-with-example-plants-including-names-descriptions-prices-images-care-requirements-water-sunlight-levels-categories-and-availability-status",
+      "title": "Create static product data with example plants including names, descriptions, prices, images, care requirements (water, sunlight levels), categories, and availability status",
+      "reqIds": [
+        "REQ-23"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-frontend-only-shopping-cart-using-browser-storage-localstorage-that-persists-cart-items-quantities-and-total-calculations-without-backend-integration",
+      "title": "Implement frontend-only shopping cart using browser storage (localStorage) that persists cart items, quantities, and total calculations without backend integration",
+      "reqIds": [
+        "REQ-24"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-animations-feel-smooth-lightweight-and-premium-while-maintaining-fast-loading-performance-and-avoiding-excessive-motion-that-could-harm-usability",
+      "title": "Ensure all animations feel smooth, lightweight, and premium while maintaining fast loading performance and avoiding excessive motion that could harm usability",
+      "reqIds": [
+        "REQ-25"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-make-website-fully-responsive-across-mobile-tablet-and-desktop-with-appropriate-breakpoints-and-mobile-optimized-interactions",
+      "title": "Make website fully responsive across mobile, tablet, and desktop with appropriate breakpoints and mobile-optimized interactions",
+      "reqIds": [
+        "REQ-26"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Home page with animated hero, featured categories, best-selling carousel, benefits section, testimonials, and newsletter",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Shop page with animated product grid, filter sidebar, hover effects, and pagination",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Product detail page with image gallery, care indicators, accordion sections, and related products slider",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "Plant care guide blog layout with scroll-triggered animations and reading progress bar",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Cart & checkout with slide-in drawer and smooth quantity transitions",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Sticky transparent navbar with blur on scroll and animated mobile menu",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Smooth scrolling with parallax effects, fade-in reveals, and floating plant animations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Micro-interactions: add-to-cart animation, wishlist heart, filter selection, button effects",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-26",
+      "summary": "Implement button ripple or glow effect on interaction for all primary action buttons",
+      "reqIds": [
+        "REQ-18"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-27",
+      "summary": "Add smooth dropdown expansion animations for all dropdown menus and select controls",
+      "reqIds": [
+        "REQ-19"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "GreenLeaf",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}
