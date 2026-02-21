@@ -2,46 +2,8 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-create-home-page-with-full-screen-animated-hero-section-featuring-cinematic-plant-visuals-slow-floating-animation-on-plants-leaves-smooth-fade-and-slide-text-animation-subtle-background-gradient-movement-and-scroll-indicator-animation",
-      "featureTitle": "Create home page with full-screen animated hero section featuring cinematic plant visuals, slow floating animation on plants/leaves, smooth fade and slide text animation, subtle background gradient movement, and scroll indicator animation",
-      "files": [
-        "frontend/src/index.css",
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-1"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-featured-categories-section-with-hover-animations-where-cards-lift-slightly-on-hover-implement-image-zoom-with-soft-shadow-expansion-and-include-smooth-hover-transitions-on-buttons",
-      "featureTitle": "Add featured categories section with hover animations where cards lift slightly on hover, implement image zoom with soft shadow expansion, and include smooth hover transitions on buttons",
-      "files": [
-        "frontend/src/data/categories.ts",
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-2"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-best-selling-plants-carousel-with-smooth-sliding-transitions-and-navigation-controls",
-      "featureTitle": "Implement best-selling plants carousel with smooth sliding transitions and navigation controls",
+      "featureId": "feature-replace-the-video-background-in-the-hero-section-frontend-src-pages-home-tsx-with-a-static-image-of-multiple-plants-from-a-botanical-garden-or-plant-collection",
+      "featureTitle": "Replace the video background in the hero section (frontend/src/pages/Home.tsx) with a static image of multiple plants from a botanical garden or plant collection",
       "files": [
         "frontend/src/pages/Home.tsx"
       ],
@@ -53,51 +15,13 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-3"
+        "REQ-37"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-create-benefits-section-with-animated-icons-that-trigger-on-scroll-into-view",
-      "featureTitle": "Create benefits section with animated icons that trigger on scroll into view",
-      "files": [
-        "frontend/src/hooks/useScrollAnimation.ts",
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-4"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-testimonials-section-with-automatic-sliding-carousel-animation",
-      "featureTitle": "Add testimonials section with automatic sliding carousel animation",
-      "files": [
-        "frontend/src/data/testimonials.ts",
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-5"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-newsletter-signup-section-with-soft-motion-effects-and-input-animations",
-      "featureTitle": "Create newsletter signup section with soft motion effects and input animations",
+      "featureId": "feature-remove-all-overlay-elements-from-the-hero-section-background-image-including-dark-overlays-gradient-overlays-and-any-semi-transparent-layers",
+      "featureTitle": "Remove all overlay elements from the hero section background image including dark overlays, gradient overlays, and any semi-transparent layers",
       "files": [
         "frontend/src/pages/Home.tsx"
       ],
@@ -109,17 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-6"
+        "REQ-38"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-build-shop-page-with-animated-product-grid-that-reveals-items-with-fade-and-upward-motion-on-scroll-using-staggered-timing-for-sequential-appearance",
-      "featureTitle": "Build shop page with animated product grid that reveals items with fade and upward motion on scroll, using staggered timing for sequential appearance",
+      "featureId": "feature-add-text-shadow-effect-to-the-hero-section-headline-text-to-ensure-readability-against-the-static-botanical-image-background",
+      "featureTitle": "Add text shadow effect to the hero section headline text to ensure readability against the static botanical image background",
       "files": [
-        "frontend/src/components/ProductCard.tsx",
-        "frontend/src/data/products.ts",
-        "frontend/src/pages/Shop.tsx"
+        "frontend/src/pages/Home.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -129,15 +51,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-7"
+        "REQ-39"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-filter-sidebar-with-sliding-interaction-that-smoothly-expands-and-collapses-including-animated-filter-selection-with-visual-feedback",
-      "featureTitle": "Add filter sidebar with sliding interaction that smoothly expands and collapses, including animated filter selection with visual feedback",
+      "featureId": "feature-ensure-no-solid-color-box-or-background-container-is-added-behind-the-headline-text-in-the-hero-section",
+      "featureTitle": "Ensure no solid color box or background container is added behind the headline text in the hero section",
       "files": [
-        "frontend/src/pages/Shop.tsx"
+        "frontend/src/pages/Home.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -147,15 +69,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-8"
+        "REQ-40"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-implement-hover-preview-effects-on-product-cards-with-image-zoom-and-shadow-expansion",
-      "featureTitle": "Implement hover preview effects on product cards with image zoom and shadow expansion",
+      "featureId": "feature-remove-all-dynamic-color-transition-animations-and-animated-gradient-effects-from-the-hero-section-background",
+      "featureTitle": "Remove all dynamic color transition animations and animated gradient effects from the hero section background",
       "files": [
-        "frontend/src/components/ProductCard.tsx"
+        "frontend/src/pages/Home.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -165,286 +87,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-9"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-smooth-pagination-transitions-between-product-pages",
-      "featureTitle": "Add smooth pagination transitions between product pages",
-      "files": [
-        "frontend/src/pages/Shop.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-10"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-product-detail-page-with-image-gallery-featuring-smooth-transitions-between-images-animated-care-indicators-for-water-and-sunlight-with-icon-animations-expandable-accordion-sections-and-related-products-slider",
-      "featureTitle": "Create product detail page with image gallery featuring smooth transitions between images, animated care indicators for water and sunlight with icon animations, expandable accordion sections, and related products slider",
-      "files": [
-        "frontend/src/pages/ProductDetail.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-11"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-build-plant-care-guide-page-with-blog-layout-scroll-triggered-animations-for-article-entries-and-sticky-reading-progress-bar-that-tracks-scroll-position",
-      "featureTitle": "Build plant care guide page with blog layout, scroll-triggered animations for article entries, and sticky reading progress bar that tracks scroll position",
-      "files": [
-        "frontend/src/data/careGuides.ts",
-        "frontend/src/pages/CareGuide.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-12"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-slide-in-cart-drawer-animation-that-opens-from-the-side-with-smooth-motion-including-add-to-cart-animation-where-plant-item-visually-moves-to-cart-icon-and-smooth-quantity-update-transitions",
-      "featureTitle": "Implement slide-in cart drawer animation that opens from the side with smooth motion, including add-to-cart animation where plant item visually moves to cart icon, and smooth quantity update transitions",
-      "files": [
-        "frontend/src/components/CartDrawer.tsx",
-        "frontend/src/context/CartContext.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-13"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-checkout-page-interface-with-smooth-form-transitions-and-validation-animations",
-      "featureTitle": "Create checkout page interface with smooth form transitions and validation animations",
-      "files": [
-        "frontend/src/pages/Checkout.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-14"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-build-sticky-transparent-navbar-that-adds-blur-background-on-scroll-with-animated-menu-underline-following-active-page-and-smooth-fullscreen-mobile-menu-transition",
-      "featureTitle": "Build sticky transparent navbar that adds blur background on scroll, with animated menu underline following active page, and smooth fullscreen mobile menu transition",
-      "files": [
-        "frontend/src/components/Navbar.tsx",
-        "frontend/src/hooks/useScroll.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-15"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-smooth-inertia-scrolling-throughout-the-site-with-parallax-scrolling-between-sections-where-plants-float-slightly-while-scrolling-and-sections-transition-seamlessly-without-hard-cuts",
-      "featureTitle": "Implement smooth inertia scrolling throughout the site with parallax scrolling between sections where plants float slightly while scrolling and sections transition seamlessly without hard cuts",
-      "files": [
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-16"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-add-wishlist-heart-animation-with-smooth-toggle-interaction-that-responds-to-user-clicks",
-      "featureTitle": "Add wishlist heart animation with smooth toggle interaction that responds to user clicks",
-      "files": [
-        "frontend/src/components/WishlistButton.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-17"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-smooth-page-to-page-transitions-using-fade-or-slide-effects-between-route-changes",
-      "featureTitle": "Implement smooth page-to-page transitions using fade or slide effects between route changes",
-      "files": [
-        "frontend/src/App.tsx",
-        "frontend/src/components/PageTransition.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-20"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-loading-animation-using-leaf-or-growing-plant-concept-that-appears-during-page-transitions-or-data-loading",
-      "featureTitle": "Create loading animation using leaf or growing plant concept that appears during page transitions or data loading",
-      "files": [
-        "frontend/src/components/LoadingSpinner.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-21"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-apply-minimal-luxury-eco-aesthetic-with-soft-green-and-earthy-tones-beige-backgrounds-glassmorphism-effects-soft-shadows-clean-grid-system-with-large-breathing-space-and-apple-quality-polish-combined-with-organic-natural-motion",
-      "featureTitle": "Apply minimal luxury eco aesthetic with soft green and earthy tones, beige backgrounds, glassmorphism effects, soft shadows, clean grid system with large breathing space, and Apple-quality polish combined with organic natural motion",
-      "files": [
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-22"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-create-static-product-data-with-example-plants-including-names-descriptions-prices-images-care-requirements-water-sunlight-levels-categories-and-availability-status",
-      "featureTitle": "Create static product data with example plants including names, descriptions, prices, images, care requirements (water, sunlight levels), categories, and availability status",
-      "files": [
-        "frontend/src/data/products.ts",
-        "frontend/src/types/product.ts"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-23"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-implement-frontend-only-shopping-cart-using-browser-storage-localstorage-that-persists-cart-items-quantities-and-total-calculations-without-backend-integration",
-      "featureTitle": "Implement frontend-only shopping cart using browser storage (localStorage) that persists cart items, quantities, and total calculations without backend integration",
-      "files": [
-        "frontend/src/context/CartContext.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-24"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-ensure-all-animations-feel-smooth-lightweight-and-premium-while-maintaining-fast-loading-performance-and-avoiding-excessive-motion-that-could-harm-usability",
-      "featureTitle": "Ensure all animations feel smooth, lightweight, and premium while maintaining fast loading performance and avoiding excessive motion that could harm usability",
-      "files": [
-        "frontend/src/index.css"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-25"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-make-website-fully-responsive-across-mobile-tablet-and-desktop-with-appropriate-breakpoints-and-mobile-optimized-interactions",
-      "featureTitle": "Make website fully responsive across mobile, tablet, and desktop with appropriate breakpoints and mobile-optimized interactions",
-      "files": [
-        "frontend/src/components/Layout.tsx",
-        "frontend/src/hooks/useMediaQuery.ts",
-        "frontend/src/index.css",
-        "frontend/tailwind.config.js"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-26"
+        "REQ-41"
       ],
       "confidence": "high"
     }

@@ -1,6 +1,6 @@
 {
   "schemaVersion": "1.0.0",
-  "projectStateVersion": 3,
+  "projectStateVersion": 9,
   "summary": "E-commerce website for GreenLeaf online plant store with premium animated UI, smooth scrolling, parallax effects, and modern micro-interactions. Frontend-only implementation with static product data and browser-based cart.",
   "architectural_notes": [
     "Frontend-only implementation with no backend or database",
@@ -9,11 +9,13 @@
     "Glassmorphism design with soft green/beige color palette",
     "Animation library for smooth parallax and scroll effects",
     "Responsive design with mobile-first approach",
-    "No authentication or payment processing"
+    "No authentication or payment processing",
+    "Hero section uses static botanical garden image with multiple plants (no video)",
+    "Text visibility achieved through text shadow effects only (no overlays or color boxes)"
   ],
   "known_issues": [],
   "isFixRequest": false,
-  "imageRequirements": "## Required Images\n- Hero section full-width plant photograph with soft natural lighting, lush greenery filling frame (hero-plants.dim_1920x1080.png)\n- Floating monstera leaf illustration with transparent background for hero animation (monstera-float.dim_400x400.png)\n- Small potted succulent plant photo on white background (succulent-1.dim_400x400.png)\n- Fiddle leaf fig tree in ceramic pot photo on white background (fiddle-leaf.dim_400x400.png)\n- Snake plant in modern pot photo on white background (snake-plant.dim_400x400.png)\n- Pothos trailing plant photo on white background (pothos.dim_400x400.png)\n- Peace lily plant with white flower photo on white background (peace-lily.dim_400x400.png)\n- Rubber plant in terracotta pot photo on white background (rubber-plant.dim_400x400.png)\n- ZZ plant in minimal pot photo on white background (zz-plant.dim_400x400.png)\n- Calathea ornata plant photo on white background (calathea.dim_400x400.png)\n- Bird of paradise plant photo on white background (bird-paradise.dim_400x400.png)\n- String of pearls succulent photo on white background (string-pearls.dim_400x400.png)\n- Aloe vera plant photo on white background (aloe-vera.dim_400x400.png)\n- Boston fern hanging plant photo on white background (boston-fern.dim_400x400.png)\n- Cactus variety collection photo on white background (cactus-mix.dim_400x400.png)\n- Water droplet icon illustration in soft green (icon-water.dim_64x64.png)\n- Sun icon illustration in warm yellow (icon-sun.dim_64x64.png)\n- Leaf growth icon illustration in green (icon-growth.dim_64x64.png)\n- Eco-friendly badge icon illustration (icon-eco.dim_64x64.png)\n- Free shipping truck icon illustration (icon-shipping.dim_64x64.png)\n- Plant care guide book icon illustration (icon-care-guide.dim_64x64.png)",
+  "imageRequirements": "## Required Images\n- Wide botanical garden scene with multiple plants including various green foliage, flowers, and natural lighting for hero section background (hero-botanical-garden.dim_1920x1080.png)",
   "existing_features": [
     {
       "id": "feature-create-home-page-with-full-screen-animated-hero-section-featuring-cinematic-plant-visuals-slow-floating-animation-on-plants-leaves-smooth-fade-and-slide-text-animation-subtle-background-gradient-movement-and-scroll-indicator-animation",
@@ -206,6 +208,126 @@
         "REQ-26"
       ],
       "version": 1
+    },
+    {
+      "id": "feature-replace-the-static-hero-background-image-with-a-smooth-animated-gradient-that-features-flowing-color-transitions-between-complementary-sage-and-earthy-tones-creating-a-dynamic-and-captivating-visual-experience",
+      "title": "Replace the static hero background image with a smooth animated gradient that features flowing color transitions between complementary sage and earthy tones, creating a dynamic and captivating visual experience",
+      "reqIds": [
+        "REQ-27"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-enhanced-visual-effects-and-smooth-animations-to-the-hero-section-to-make-it-more-immersive-and-captivating-including-parallax-effects-floating-elements-and-refined-typography-animations",
+      "title": "Add enhanced visual effects and smooth animations to the hero section to make it more immersive and captivating, including parallax effects, floating elements, and refined typography animations",
+      "reqIds": [
+        "REQ-28"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-new-educational-section-on-the-home-page-that-presents-plant-care-tips-in-an-engaging-visually-appealing-format-with-clear-typography-icons-and-smooth-reveal-animations",
+      "title": "Create a new educational section on the home page that presents plant care tips in an engaging, visually appealing format with clear typography, icons, and smooth reveal animations",
+      "reqIds": [
+        "REQ-29"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-new-educational-section-on-the-home-page-highlighting-the-benefits-of-indoor-plants-air-purification-stress-reduction-productivity-etc-with-engaging-visuals-and-scroll-triggered-animations",
+      "title": "Add a new educational section on the home page highlighting the benefits of indoor plants (air purification, stress reduction, productivity, etc.) with engaging visuals and scroll-triggered animations",
+      "reqIds": [
+        "REQ-30"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-expand-the-static-product-data-in-frontend-src-data-products-ts-to-include-at-least-12-additional-plant-varieties-with-diverse-categories-succulents-tropical-low-light-pet-friendly-air-purifying-complete-with-names-descriptions-prices-care-requirements-difficulty-levels-and-stock-status",
+      "title": "Expand the static product data in frontend/src/data/products.ts to include at least 12 additional plant varieties with diverse categories (succulents, tropical, low-light, pet-friendly, air-purifying), complete with names, descriptions, prices, care requirements, difficulty levels, and stock status",
+      "reqIds": [
+        "REQ-31"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-increase-the-number-of-products-displayed-in-the-best-selling-plants-carousel-on-the-home-page-to-showcase-more-variety-from-the-expanded-catalog",
+      "title": "Increase the number of products displayed in the best-selling plants carousel on the home page to showcase more variety from the expanded catalog",
+      "reqIds": [
+        "REQ-32"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-all-new-educational-sections-and-expanded-product-displays-maintain-the-premium-aesthetic-with-smooth-animations-glassmorphism-effects-soft-shadows-and-breathing-space-consistent-with-the-existing-design-system",
+      "title": "Ensure all new educational sections and expanded product displays maintain the premium aesthetic with smooth animations, glassmorphism effects, soft shadows, and breathing space consistent with the existing design system",
+      "reqIds": [
+        "REQ-33"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-animated-gradient-background-in-the-hero-section-frontend-src-pages-home-tsx-with-an-auto-playing-looping-muted-video-element-that-displays-botanical-garden-footage-from-a-stock-video-service-like-pexels-videos",
+      "title": "Replace the animated gradient background in the hero section (frontend/src/pages/Home.tsx) with an auto-playing, looping, muted video element that displays botanical garden footage from a stock video service like Pexels Videos",
+      "reqIds": [
+        "REQ-34"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-performance-optimizations-for-the-video-background-including-lazy-loading-proper-video-format-support-webm-mp4-and-fallback-handling-for-browsers-that-don-t-support-video-playback",
+      "title": "Implement performance optimizations for the video background including lazy loading, proper video format support (WebM, MP4), and fallback handling for browsers that don't support video playback",
+      "reqIds": [
+        "REQ-35"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-subtle-dark-overlay-on-top-of-the-video-background-to-ensure-text-readability-while-maintaining-the-cinematic-botanical-garden-aesthetic",
+      "title": "Add a subtle dark overlay on top of the video background to ensure text readability while maintaining the cinematic botanical garden aesthetic",
+      "reqIds": [
+        "REQ-36"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-the-video-background-in-the-hero-section-frontend-src-pages-home-tsx-with-a-static-image-of-multiple-plants-from-a-botanical-garden-or-plant-collection",
+      "title": "Replace the video background in the hero section (frontend/src/pages/Home.tsx) with a static image of multiple plants from a botanical garden or plant collection",
+      "reqIds": [
+        "REQ-37"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-overlay-elements-from-the-hero-section-background-image-including-dark-overlays-gradient-overlays-and-any-semi-transparent-layers",
+      "title": "Remove all overlay elements from the hero section background image including dark overlays, gradient overlays, and any semi-transparent layers",
+      "reqIds": [
+        "REQ-38"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-text-shadow-effect-to-the-hero-section-headline-text-to-ensure-readability-against-the-static-botanical-image-background",
+      "title": "Add text shadow effect to the hero section headline text to ensure readability against the static botanical image background",
+      "reqIds": [
+        "REQ-39"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-no-solid-color-box-or-background-container-is-added-behind-the-headline-text-in-the-hero-section",
+      "title": "Ensure no solid color box or background container is added behind the headline text in the hero section",
+      "reqIds": [
+        "REQ-40"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-remove-all-dynamic-color-transition-animations-and-animated-gradient-effects-from-the-hero-section-background",
+      "title": "Remove all dynamic color transition animations and animated gradient effects from the hero section background",
+      "reqIds": [
+        "REQ-41"
+      ],
+      "version": 1
     }
   ],
   "new_feature_requests": [
@@ -271,6 +393,18 @@
       "reqIds": [
         "REQ-19"
       ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-29",
+      "summary": "Integrate educational plant care tips and indoor plant benefits sections into home page",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-30",
+      "summary": "Expand plant collection in home carousel and overall shop catalog with more variety",
+      "reqIds": [],
       "status": "pending"
     }
   ],

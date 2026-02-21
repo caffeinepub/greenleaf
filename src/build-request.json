@@ -1,565 +1,119 @@
 {
   "kind": "build_request",
-  "title": "Build GreenLeaf animated e-commerce plant store interface",
-  "projectName": "GreenLeaf",
+  "title": "Replace video hero with static botanical image and text shadow",
+  "projectName": "GreenLeaf Plant Store",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-1",
-      "text": "Create home page with full-screen animated hero section featuring cinematic plant visuals, slow floating animation on plants/leaves, smooth fade and slide text animation, subtle background gradient movement, and scroll indicator animation",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Hero Section: Full-screen hero with cinematic plant visuals, Slow floating animation on plants/leaves, Text appearing with smooth fade and slide animation, Subtle background gradient movement, Scroll indicator animation"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Hero section takes up full viewport height",
-        "Plant/leaf images have continuous floating animation",
-        "Text elements fade in and slide up on page load",
-        "Background gradient subtly shifts colors",
-        "Animated scroll indicator prompts user to scroll down"
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "text": "Add featured categories section with hover animations where cards lift slightly on hover, implement image zoom with soft shadow expansion, and include smooth hover transitions on buttons",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Featured categories with hover animations",
-          "Product cards lift slightly on hover, Image zoom + soft shadow expansion, Buttons with liquid smooth hover transitions"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Category cards have subtle lift transform on hover",
-        "Images zoom smoothly when hovered",
-        "Shadow expands softly around hovered cards",
-        "Button hover states are liquid smooth with no jarring transitions"
-      ]
-    },
-    {
-      "id": "REQ-3",
-      "text": "Implement best-selling plants carousel with smooth sliding transitions and navigation controls",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Best-selling plants carousel"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Carousel slides smoothly between products",
-        "Previous/next navigation controls work correctly",
-        "Carousel is touch-enabled on mobile devices",
-        "Auto-play option works with smooth transitions"
-      ]
-    },
-    {
-      "id": "REQ-4",
-      "text": "Create benefits section with animated icons that trigger on scroll into view",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Benefits section with animated icons"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Icons animate when scrolled into viewport",
-        "Animations are smooth and purposeful",
-        "Benefits are displayed in a clean grid layout",
-        "Text appears with staggered timing after icons"
-      ]
-    },
-    {
-      "id": "REQ-5",
-      "text": "Add testimonials section with automatic sliding carousel animation",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Testimonials sliding automatically"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Testimonials auto-slide at regular intervals",
-        "Sliding animation is smooth and seamless",
-        "Users can manually navigate testimonials",
-        "Pause on hover functionality works"
-      ]
-    },
-    {
-      "id": "REQ-6",
-      "text": "Create newsletter signup section with soft motion effects and input animations",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Newsletter section with soft motion"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Input field has smooth focus transitions",
-        "Submit button has hover animation",
-        "Section has subtle entrance animation on scroll",
-        "Form elements have elegant motion design"
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "text": "Build shop page with animated product grid that reveals items with fade and upward motion on scroll, using staggered timing for sequential appearance",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Animated product grid reveal",
-          "Elements reveal with fade + upward motion on scroll",
-          "Scroll-triggered animations using staggered timing"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Products fade in and slide up when scrolled into view",
-        "Grid items animate with staggered delays for cascade effect",
-        "Animation triggers only once per scroll session",
-        "Grid is responsive across all screen sizes"
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "text": "Add filter sidebar with sliding interaction that smoothly expands and collapses, including animated filter selection with visual feedback",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Filter sidebar sliding interaction",
-          "Animated filter selection"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Sidebar slides in/out smoothly",
-        "Filter options highlight smoothly when selected",
-        "Selected filters show active state with animation",
-        "Mobile filter menu works with drawer animation"
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "text": "Implement hover preview effects on product cards with image zoom and shadow expansion",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Hover preview effects",
-          "Image zoom + soft shadow expansion"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Product images zoom on hover",
-        "Shadow smoothly expands around card",
-        "Quick info appears on hover",
-        "Hover state is smooth and performant"
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "text": "Add smooth pagination transitions between product pages",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Smooth pagination transitions"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Page changes have fade or slide transition",
-        "Active page number is highlighted",
-        "Pagination controls are keyboard accessible",
-        "Transition feels seamless without jarring refresh"
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "text": "Create product detail page with image gallery featuring smooth transitions between images, animated care indicators for water and sunlight with icon animations, expandable accordion sections, and related products slider",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Image gallery with smooth transitions, Animated care indicators (water, sunlight icons), Expandable accordion sections, Related products slider"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Image gallery transitions smoothly between photos",
-        "Thumbnail navigation works with smooth selection",
-        "Care indicator icons animate on page load or scroll",
-        "Accordion sections expand/collapse smoothly",
-        "Related products carousel slides smoothly"
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "text": "Build plant care guide page with blog layout, scroll-triggered animations for article entries, and sticky reading progress bar that tracks scroll position",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Blog layout with scroll-triggered animations, Sticky reading progress bar"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Blog entries animate in as user scrolls",
-        "Progress bar remains sticky at top while scrolling",
-        "Progress bar accurately reflects reading position",
-        "Layout is clean and readable with good typography"
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "text": "Implement slide-in cart drawer animation that opens from the side with smooth motion, including add-to-cart animation where plant item visually moves to cart icon, and smooth quantity update transitions",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Slide-in cart drawer animation",
-          "Add-to-cart animation (plant moves to cart icon)",
-          "Smooth quantity update transitions"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Cart drawer slides in smoothly from side",
-        "Add-to-cart shows item flying to cart icon",
-        "Quantity controls update with smooth transitions",
-        "Cart persists in browser storage",
-        "Empty cart state is handled gracefully"
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "text": "Create checkout page interface with smooth form transitions and validation animations",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Cart & Checkout"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Checkout form has smooth step transitions",
-        "Form fields have elegant focus states",
-        "Validation errors appear with smooth animations",
-        "Order summary updates smoothly as items change"
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "text": "Build sticky transparent navbar that adds blur background on scroll, with animated menu underline following active page, and smooth fullscreen mobile menu transition",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Sticky transparent navbar, Navbar background blur on scroll, Animated menu underline, Mobile menu with smooth fullscreen transition"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Navbar remains sticky at top of page",
-        "Background blurs when scrolling down",
-        "Active menu item has animated underline indicator",
-        "Mobile menu opens with fullscreen smooth animation",
-        "Navbar is fully responsive"
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "text": "Implement smooth inertia scrolling throughout the site with parallax scrolling between sections where plants float slightly while scrolling and sections transition seamlessly without hard cuts",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Smooth inertia scrolling, Parallax scrolling between sections, Plants slightly floating while scrolling, Sections transition seamlessly (no hard cuts)"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Scrolling has natural inertia feel",
-        "Background and foreground elements move at different speeds for parallax effect",
-        "Plant images have subtle floating animation during scroll",
-        "Section transitions are smooth with no abrupt changes",
-        "Performance remains smooth during scrolling"
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "text": "Add wishlist heart animation with smooth toggle interaction that responds to user clicks",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Wishlist heart animation"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Heart icon animates smoothly when clicked",
-        "Filled and unfilled states transition smoothly",
-        "Animation has a bouncy, delightful feel",
-        "Wishlist state is stored in browser"
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "text": "Implement button ripple or glow effect on interaction for all primary action buttons",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Button ripple or glow effect"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Buttons show ripple effect on click",
-        "Glow effect appears smoothly on hover",
-        "Effect is subtle and premium feeling",
-        "Works consistently across all button types"
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "text": "Add smooth dropdown expansion animations for all dropdown menus and select controls",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Smooth dropdown expansion"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Dropdowns expand with smooth height transition",
-        "Options fade in with staggered timing",
-        "Close animation is equally smooth",
-        "Dropdown is accessible via keyboard"
-      ]
-    },
-    {
-      "id": "REQ-20",
-      "text": "Implement smooth page-to-page transitions using fade or slide effects between route changes",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Smooth page-to-page transitions (fade or slide)",
-          "Seamless navigation without abrupt reload feeling"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Navigation between pages has smooth transition",
-        "No abrupt white flash or jarring reload",
-        "Exit and enter animations coordinate smoothly",
-        "Browser back/forward buttons respect transitions"
-      ]
-    },
-    {
-      "id": "REQ-21",
-      "text": "Create loading animation using leaf or growing plant concept that appears during page transitions or data loading",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Loading animation using leaf or growing plant concept"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Loading indicator features organic plant/leaf animation",
-        "Animation loops smoothly",
-        "Appears during navigation and async operations",
-        "Design matches overall aesthetic"
-      ]
-    },
-    {
-      "id": "REQ-22",
-      "text": "Apply minimal luxury eco aesthetic with soft green and earthy tones, beige backgrounds, glassmorphism effects, soft shadows, clean grid system with large breathing space, and Apple-quality polish combined with organic natural motion",
-      "target": "frontend",
-      "source": {
-        "messageIds": [
-          "msg-3"
-        ],
-        "quotes": [
-          "Minimal + luxury eco aesthetic, Soft green, earthy tones, beige backgrounds, Glassmorphism and soft shadows, Clean grid system with large breathing space, Apple-quality polish combined with organic natural motion"
-        ]
-      },
-      "acceptanceCriteria": [
-        "Color palette uses soft greens, earth tones, and beige",
-        "UI elements have glassmorphism effect with blur and transparency",
-        "Shadows are soft and subtle throughout",
-        "Grid layouts have generous whitespace",
-        "Overall feel is premium, calm, and organic",
-        "Design quality matches Apple-level polish"
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "text": "Create static product data with example plants including names, descriptions, prices, images, care requirements (water, sunlight levels), categories, and availability status",
+      "id": "REQ-37",
+      "text": "Replace the video background in the hero section (frontend/src/pages/Home.tsx) with a static image of multiple plants from a botanical garden or plant collection",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-5"
         ],
         "quotes": [
-          "Static product data (hardcoded example plants in the code)"
+          "use image of a multiple plants"
         ]
       },
       "acceptanceCriteria": [
-        "At least 12-15 example plants are included",
-        "Each plant has complete product information",
-        "Data structure is clean and easily editable",
-        "Images are organized and properly referenced",
-        "Multiple categories represented"
+        "Video element is removed from hero section",
+        "Static image element displays botanical/garden scene with multiple plants",
+        "Image covers full hero section width and height",
+        "Image uses object-fit: cover for proper scaling"
       ]
     },
     {
-      "id": "REQ-24",
-      "text": "Implement frontend-only shopping cart using browser storage (localStorage) that persists cart items, quantities, and total calculations without backend integration",
+      "id": "REQ-38",
+      "text": "Remove all overlay elements from the hero section background image including dark overlays, gradient overlays, and any semi-transparent layers",
       "target": "frontend",
       "source": {
         "messageIds": [
           "msg-5"
         ],
         "quotes": [
-          "Shopping cart functionality (add/remove items, stored in browser)",
-          "Frontend-only cart (browser storage, no backend)"
+          "do not add any type of overlay over the image"
         ]
       },
       "acceptanceCriteria": [
-        "Cart data persists in browser between sessions",
-        "Add, remove, and update quantity functions work correctly",
-        "Cart total calculates accurately",
-        "Cart icon shows item count badge",
-        "Cart syncs across browser tabs"
+        "No overlay div elements are rendered on top of the background image",
+        "Background image is fully visible without any darkening or color filters",
+        "No CSS filters or opacity adjustments are applied to the image"
       ]
     },
     {
-      "id": "REQ-25",
-      "text": "Ensure all animations feel smooth, lightweight, and premium while maintaining fast loading performance and avoiding excessive motion that could harm usability",
+      "id": "REQ-39",
+      "text": "Add text shadow effect to the hero section headline text to ensure readability against the static botanical image background",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-5"
         ],
         "quotes": [
-          "Animations must feel smooth, lightweight, and premium, Avoid excessive motion; prioritize elegance and usability, Maintain fast loading performance"
+          "only add text shadow effect"
         ]
       },
       "acceptanceCriteria": [
-        "Page load time is under 3 seconds",
-        "Animations run at 60fps without jank",
-        "Motion is purposeful and not overwhelming",
-        "Users can navigate without distraction",
-        "Performance is optimized for smooth experience"
+        "Headline text has visible text-shadow CSS property applied",
+        "Text shadow provides sufficient contrast for readability",
+        "Text shadow is subtle and does not create harsh visual artifacts",
+        "All headline text elements in the hero section have shadow applied"
       ]
     },
     {
-      "id": "REQ-26",
-      "text": "Make website fully responsive across mobile, tablet, and desktop with appropriate breakpoints and mobile-optimized interactions",
+      "id": "REQ-40",
+      "text": "Ensure no solid color box or background container is added behind the headline text in the hero section",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-3"
+          "msg-5"
         ],
         "quotes": [
-          "Generate a fully responsive website"
+          "do not add solid color behind the headline"
         ]
       },
       "acceptanceCriteria": [
-        "Layout adapts smoothly to all screen sizes",
-        "Touch interactions work on mobile devices",
-        "Mobile navigation is intuitive and animated",
-        "Typography scales appropriately",
-        "Images are optimized for different viewports"
+        "Headline text does not have a background-color property",
+        "No container div with background color wraps the headline",
+        "Text appears directly over the botanical image with only text shadow for visibility"
+      ]
+    },
+    {
+      "id": "REQ-41",
+      "text": "Remove all dynamic color transition animations and animated gradient effects from the hero section background",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-5"
+        ],
+        "quotes": [
+          "do not put transition dynamic color layout",
+          "do not put a layer of dynamic color"
+        ]
+      },
+      "acceptanceCriteria": [
+        "No CSS animations or transitions affect the background color",
+        "No animated gradient overlays are present",
+        "Background remains completely static with no color changes or movements",
+        "Hero section uses only the static botanical image without any dynamic effects"
       ]
     }
   ],
   "constraints": [
-    "Do not create any backend functionality or database integration",
-    "Do not implement user authentication or account system",
-    "Do not integrate payment processing",
-    "All product data must be static and hardcoded in frontend",
-    "Cart functionality must use browser localStorage only",
-    "Maintain smooth 60fps performance for all animations",
-    "Do not use blue and purple color schemes unless specifically requested"
+    "Do not modify backend/main.mo",
+    "Maintain existing hero section layout and text positioning",
+    "Preserve all other hero section animations (text fade-in, floating elements) that do not relate to background color transitions",
+    "Keep the hero section responsive across all breakpoints"
   ],
   "nonGoals": [
-    "Building admin panel for product management",
-    "Implementing user authentication with Internet Identity",
-    "Creating backend API for product data",
-    "Integrating payment processing with Stripe",
-    "Building persistent database storage",
-    "Creating user accounts or order history tracking",
-    "Implementing real-time inventory management"
+    "Adding video elements or video backgrounds",
+    "Implementing overlay layers of any kind",
+    "Adding background boxes or containers behind text",
+    "Creating animated gradients or color transitions"
   ],
   "imageRequirements": {
     "required": [
-      "Hero section full-width plant photograph with soft natural lighting, lush greenery filling frame (hero-plants.dim_1920x1080.png)",
-      "Floating monstera leaf illustration with transparent background for hero animation (monstera-float.dim_400x400.png)",
-      "Small potted succulent plant photo on white background (succulent-1.dim_400x400.png)",
-      "Fiddle leaf fig tree in ceramic pot photo on white background (fiddle-leaf.dim_400x400.png)",
-      "Snake plant in modern pot photo on white background (snake-plant.dim_400x400.png)",
-      "Pothos trailing plant photo on white background (pothos.dim_400x400.png)",
-      "Peace lily plant with white flower photo on white background (peace-lily.dim_400x400.png)",
-      "Rubber plant in terracotta pot photo on white background (rubber-plant.dim_400x400.png)",
-      "ZZ plant in minimal pot photo on white background (zz-plant.dim_400x400.png)",
-      "Calathea ornata plant photo on white background (calathea.dim_400x400.png)",
-      "Bird of paradise plant photo on white background (bird-paradise.dim_400x400.png)",
-      "String of pearls succulent photo on white background (string-pearls.dim_400x400.png)",
-      "Aloe vera plant photo on white background (aloe-vera.dim_400x400.png)",
-      "Boston fern hanging plant photo on white background (boston-fern.dim_400x400.png)",
-      "Cactus variety collection photo on white background (cactus-mix.dim_400x400.png)",
-      "Water droplet icon illustration in soft green (icon-water.dim_64x64.png)",
-      "Sun icon illustration in warm yellow (icon-sun.dim_64x64.png)",
-      "Leaf growth icon illustration in green (icon-growth.dim_64x64.png)",
-      "Eco-friendly badge icon illustration (icon-eco.dim_64x64.png)",
-      "Free shipping truck icon illustration (icon-shipping.dim_64x64.png)",
-      "Plant care guide book icon illustration (icon-care-guide.dim_64x64.png)"
+      "Wide botanical garden scene with multiple plants including various green foliage, flowers, and natural lighting for hero section background (hero-botanical-garden.dim_1920x1080.png)"
     ],
     "edits": []
   }

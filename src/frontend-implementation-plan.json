@@ -1,688 +1,88 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "GreenLeaf Animated E-commerce Plant Store Frontend",
+  "title": "Replace video hero with static botanical image and text shadow",
   "requirements": [
     {
-      "id": "REQ-1",
-      "summary": "Create animated hero section with cinematic plant visuals and smooth animations",
+      "id": "REQ-37",
+      "summary": "Replace video background in hero section with static botanical garden image",
       "acceptanceCriteria": [
-        "Hero section takes up full viewport height",
-        "Plant/leaf images have continuous floating animation",
-        "Text elements fade in and slide up on page load",
-        "Background gradient subtly shifts colors",
-        "Animated scroll indicator prompts user to scroll down"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Home.tsx",
-          "operation": "create",
-          "description": "Create Home page component with full-screen hero section. Implement floating animation for plant images using CSS keyframes and transforms. Add fade-in and slide-up animations for text elements with staggered delays. Include animated background gradient using CSS gradients with subtle color shifts. Add scroll indicator with bouncing animation. Reference generated images: frontend/public/assets/generated/hero-plants.dim_1920x1080.png for hero background and frontend/public/assets/generated/monstera-float.dim_400x400.png for floating leaf element."
-        },
-        {
-          "path": "frontend/src/components/HeroSection.tsx",
-          "operation": "create",
-          "description": "Create reusable HeroSection component with props for background image, floating elements, and text content. Implement animation logic using Framer Motion or CSS animations for smooth transitions. Handle responsive behavior for mobile and tablet viewports."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add global CSS keyframe animations for floating, fade-in, slide-up, and gradient shift effects. Define animation durations and easing functions for smooth, organic motion. Ensure animations respect prefers-reduced-motion for accessibility."
-        }
-      ]
-    },
-    {
-      "id": "REQ-2",
-      "summary": "Add featured categories section with hover animations",
-      "acceptanceCriteria": [
-        "Category cards have subtle lift transform on hover",
-        "Images zoom smoothly when hovered",
-        "Shadow expands softly around hovered cards",
-        "Button hover states are liquid smooth with no jarring transitions"
+        "Video element is removed from hero section",
+        "Static image element displays botanical/garden scene with multiple plants",
+        "Image covers full hero section width and height",
+        "Image uses object-fit: cover for proper scaling"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Add FeaturedCategories section to Home page below hero. Include category cards with hover effects."
-        },
-        {
-          "path": "frontend/src/components/CategoryCard.tsx",
-          "operation": "create",
-          "description": "Create CategoryCard component with hover animations. Implement lift transform (translateY), image zoom scale, and shadow expansion using CSS transitions. Add smooth button hover states with easing curves. Ensure hover states work on touch devices with appropriate fallbacks."
-        },
-        {
-          "path": "frontend/src/data/categories.ts",
-          "operation": "create",
-          "description": "Create static category data with category names, descriptions, and image references for featured categories (e.g., Succulents, Tropical Plants, Low-Light Plants, Pet-Friendly)."
+          "description": "Replace the video element in the hero section with an img element using the generated botanical garden image at frontend/public/assets/generated/hero-botanical-garden.dim_1920x1080.png. Ensure the image uses object-fit: cover and covers the full hero section dimensions while maintaining the existing layout structure and text positioning."
         }
       ]
     },
     {
-      "id": "REQ-3",
-      "summary": "Implement best-selling plants carousel with smooth sliding transitions",
+      "id": "REQ-38",
+      "summary": "Remove all overlay elements from hero section background",
       "acceptanceCriteria": [
-        "Carousel slides smoothly between products",
-        "Previous/next navigation controls work correctly",
-        "Carousel is touch-enabled on mobile devices",
-        "Auto-play option works with smooth transitions"
+        "No overlay div elements are rendered on top of the background image",
+        "Background image is fully visible without any darkening or color filters",
+        "No CSS filters or opacity adjustments are applied to the image"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Add BestSellersCarousel section to Home page. Pass best-selling products from static data."
-        },
-        {
-          "path": "frontend/src/components/ProductCarousel.tsx",
-          "operation": "create",
-          "description": "Create ProductCarousel component with smooth slide transitions using transform and translateX. Implement previous/next navigation buttons. Add touch swipe support for mobile using touch event handlers. Include auto-play functionality with configurable interval. Add pagination dots for visual navigation feedback."
-        },
-        {
-          "path": "frontend/src/hooks/useCarousel.ts",
-          "operation": "create",
-          "description": "Create custom hook to manage carousel state including current slide index, auto-play timer, touch gesture handling, and navigation logic. Return carousel controls and state for component use."
+          "description": "Remove all overlay div elements from the hero section including dark overlays, gradient overlays, and any semi-transparent layers. Ensure no CSS properties like opacity, filter, or background-color are applied that would obscure the botanical image. The image should be fully visible without any darkening effects."
         }
       ]
     },
     {
-      "id": "REQ-4",
-      "summary": "Create benefits section with scroll-triggered animated icons",
+      "id": "REQ-39",
+      "summary": "Add text shadow effect to hero headline for readability",
       "acceptanceCriteria": [
-        "Icons animate when scrolled into viewport",
-        "Animations are smooth and purposeful",
-        "Benefits are displayed in a clean grid layout",
-        "Text appears with staggered timing after icons"
+        "Headline text has visible text-shadow CSS property applied",
+        "Text shadow provides sufficient contrast for readability",
+        "Text shadow is subtle and does not create harsh visual artifacts",
+        "All headline text elements in the hero section have shadow applied"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Add BenefitsSection to Home page with scroll-triggered animations."
-        },
-        {
-          "path": "frontend/src/components/BenefitsSection.tsx",
-          "operation": "create",
-          "description": "Create BenefitsSection component with grid layout for benefits. Use Intersection Observer to trigger animations when section enters viewport. Reference generated icons: frontend/public/assets/generated/icon-eco.dim_64x64.png, frontend/public/assets/generated/icon-shipping.dim_64x64.png, and frontend/public/assets/generated/icon-care-guide.dim_64x64.png for benefit icons. Implement staggered text animations following icon animations."
-        },
-        {
-          "path": "frontend/src/hooks/useScrollAnimation.ts",
-          "operation": "create",
-          "description": "Create custom hook using Intersection Observer API to detect when elements enter viewport. Return boolean state for triggering CSS animations or Framer Motion variants."
+          "description": "Add text-shadow CSS property to all headline text elements in the hero section to ensure readability against the botanical image background. Use a subtle shadow effect that provides sufficient contrast without creating harsh visual artifacts (e.g., text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6))."
         }
       ]
     },
     {
-      "id": "REQ-5",
-      "summary": "Add testimonials section with automatic sliding carousel",
+      "id": "REQ-40",
+      "summary": "Ensure no solid background container behind headline text",
       "acceptanceCriteria": [
-        "Testimonials auto-slide at regular intervals",
-        "Sliding animation is smooth and seamless",
-        "Users can manually navigate testimonials",
-        "Pause on hover functionality works"
+        "Headline text does not have a background-color property",
+        "No container div with background color wraps the headline",
+        "Text appears directly over the botanical image with only text shadow for visibility"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Add TestimonialsSection to Home page with automatic carousel."
-        },
-        {
-          "path": "frontend/src/components/TestimonialsCarousel.tsx",
-          "operation": "create",
-          "description": "Create TestimonialsCarousel component with auto-slide functionality. Implement smooth slide transitions with transform animations. Add manual navigation controls. Include pause-on-hover behavior using mouse event handlers. Reuse carousel logic from useCarousel hook."
-        },
-        {
-          "path": "frontend/src/data/testimonials.ts",
-          "operation": "create",
-          "description": "Create static testimonials data with customer names, quotes, ratings, and optional avatar placeholders."
+          "description": "Verify that no background-color property is applied to headline text elements and no container div with background color wraps the headline. The text should appear directly over the botanical image with only the text shadow providing visibility enhancement."
         }
       ]
     },
     {
-      "id": "REQ-6",
-      "summary": "Create newsletter signup section with soft motion effects",
+      "id": "REQ-41",
+      "summary": "Remove dynamic color transition animations from hero background",
       "acceptanceCriteria": [
-        "Input field has smooth focus transitions",
-        "Submit button has hover animation",
-        "Section has subtle entrance animation on scroll",
-        "Form elements have elegant motion design"
+        "No CSS animations or transitions affect the background color",
+        "No animated gradient overlays are present",
+        "Background remains completely static with no color changes or movements",
+        "Hero section uses only the static botanical image without any dynamic effects"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Add NewsletterSection to Home page with scroll-triggered entrance animation."
-        },
-        {
-          "path": "frontend/src/components/NewsletterSection.tsx",
-          "operation": "create",
-          "description": "Create NewsletterSection component with email input and submit button. Implement smooth focus transitions on input using CSS transitions. Add button hover animation with glow or scale effect. Use useScrollAnimation hook for section entrance animation. Handle form submission with visual feedback (success/error states)."
-        }
-      ]
-    },
-    {
-      "id": "REQ-7",
-      "summary": "Build shop page with animated product grid revealing on scroll",
-      "acceptanceCriteria": [
-        "Products fade in and slide up when scrolled into view",
-        "Grid items animate with staggered delays for cascade effect",
-        "Animation triggers only once per scroll session",
-        "Grid is responsive across all screen sizes"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Shop.tsx",
-          "operation": "create",
-          "description": "Create Shop page with product grid layout. Import static product data and render ProductCard components. Implement scroll-triggered animations using Intersection Observer for fade-in and slide-up effects. Apply staggered animation delays based on grid index for cascade effect. Ensure responsive grid with appropriate breakpoints (1 column mobile, 2-3 tablet, 3-4 desktop)."
-        },
-        {
-          "path": "frontend/src/components/ProductCard.tsx",
-          "operation": "create",
-          "description": "Create ProductCard component displaying product image, name, price, and quick action buttons. Implement hover effects (lift, zoom, shadow expansion). Include scroll animation classes that trigger via Intersection Observer. Reference generated product images for visual display."
-        },
-        {
-          "path": "frontend/src/data/products.ts",
-          "operation": "create",
-          "description": "Create static product data array with 12-15 example plants. Include properties: id, name, description, price, image path (referencing frontend/public/assets/generated/succulent-1.dim_400x400.png, frontend/public/assets/generated/fiddle-leaf.dim_400x400.png, frontend/public/assets/generated/snake-plant.dim_400x400.png, frontend/public/assets/generated/pothos.dim_400x400.png, frontend/public/assets/generated/peace-lily.dim_400x400.png, frontend/public/assets/generated/rubber-plant.dim_400x400.png, frontend/public/assets/generated/zz-plant.dim_400x400.png, frontend/public/assets/generated/calathea.dim_400x400.png, frontend/public/assets/generated/bird-paradise.dim_400x400.png, frontend/public/assets/generated/string-pearls.dim_400x400.png, frontend/public/assets/generated/aloe-vera.dim_400x400.png, frontend/public/assets/generated/boston-fern.dim_400x400.png, frontend/public/assets/generated/cactus-mix.dim_400x400.png), category, waterLevel (low/medium/high), sunlightLevel (low/medium/bright), inStock boolean."
-        }
-      ]
-    },
-    {
-      "id": "REQ-8",
-      "summary": "Add filter sidebar with sliding interaction and animated filter selection",
-      "acceptanceCriteria": [
-        "Sidebar slides in/out smoothly",
-        "Filter options highlight smoothly when selected",
-        "Selected filters show active state with animation",
-        "Mobile filter menu works with drawer animation"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Shop.tsx",
-          "operation": "modify",
-          "description": "Add FilterSidebar component to Shop page. Implement toggle button for mobile filter drawer. Pass filter state and handlers to ProductGrid for filtering logic."
-        },
-        {
-          "path": "frontend/src/components/FilterSidebar.tsx",
-          "operation": "create",
-          "description": "Create FilterSidebar component with category, price range, care level (water/sunlight), and availability filters. Implement smooth slide-in/out animation using transform translateX or CSS transitions. Add animated selection states with smooth highlight transitions. On mobile, render as drawer that slides from side. Manage filter state and communicate changes to parent component."
-        },
-        {
-          "path": "frontend/src/hooks/useFilters.ts",
-          "operation": "create",
-          "description": "Create custom hook to manage filter state including selected categories, price range, care levels, and availability. Provide functions to apply filters to product array and return filtered results. Handle filter reset functionality."
-        }
-      ]
-    },
-    {
-      "id": "REQ-9",
-      "summary": "Implement hover preview effects on product cards",
-      "acceptanceCriteria": [
-        "Product images zoom on hover",
-        "Shadow smoothly expands around card",
-        "Quick info appears on hover",
-        "Hover state is smooth and performant"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/ProductCard.tsx",
-          "operation": "modify",
-          "description": "Add hover state management to ProductCard. Implement image zoom using CSS transform scale on image container. Add shadow expansion using box-shadow transition. Display quick info overlay (Add to Cart, Wishlist buttons) with fade-in animation on hover. Optimize for 60fps performance using CSS transforms and will-change property."
-        }
-      ]
-    },
-    {
-      "id": "REQ-10",
-      "summary": "Add smooth pagination transitions between product pages",
-      "acceptanceCriteria": [
-        "Page changes have fade or slide transition",
-        "Active page number is highlighted",
-        "Pagination controls are keyboard accessible",
-        "Transition feels seamless without jarring refresh"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Shop.tsx",
-          "operation": "modify",
-          "description": "Add Pagination component below product grid. Implement page state management and pass to ProductGrid for displaying correct products."
-        },
-        {
-          "path": "frontend/src/components/Pagination.tsx",
-          "operation": "create",
-          "description": "Create Pagination component with page number buttons, previous/next controls, and active state highlighting. Implement smooth fade or slide transition when changing pages using CSS transitions or Framer Motion. Ensure keyboard accessibility with proper ARIA labels and focus management. Add smooth scroll-to-top behavior on page change."
-        },
-        {
-          "path": "frontend/src/hooks/usePagination.ts",
-          "operation": "create",
-          "description": "Create custom hook to manage pagination state including current page, items per page, and total pages calculation. Return paginated data slice and page navigation functions."
-        }
-      ]
-    },
-    {
-      "id": "REQ-11",
-      "summary": "Create product detail page with image gallery, animated care indicators, accordion sections, and related products",
-      "acceptanceCriteria": [
-        "Image gallery transitions smoothly between photos",
-        "Thumbnail navigation works with smooth selection",
-        "Care indicator icons animate on page load or scroll",
-        "Accordion sections expand/collapse smoothly",
-        "Related products carousel slides smoothly"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/ProductDetail.tsx",
-          "operation": "create",
-          "description": "Create ProductDetail page component that receives product ID from route params. Display product information including ImageGallery, product details, animated care indicators (referencing frontend/public/assets/generated/icon-water.dim_64x64.png and frontend/public/assets/generated/icon-sun.dim_64x64.png), price, and add-to-cart functionality. Include accordion sections for description, care instructions, and shipping info. Add RelatedProducts carousel at bottom using ProductCarousel component."
-        },
-        {
-          "path": "frontend/src/components/ImageGallery.tsx",
-          "operation": "create",
-          "description": "Create ImageGallery component with main image display and thumbnail navigation. Implement smooth transitions between images using fade or slide animations. Add thumbnail selection with smooth highlight animation. Support keyboard navigation and touch swipe on mobile."
-        },
-        {
-          "path": "frontend/src/components/CareIndicators.tsx",
-          "operation": "create",
-          "description": "Create CareIndicators component displaying water and sunlight level icons with labels. Implement entrance animations (scale, fade, or bounce) triggered on component mount or scroll. Use generated icons frontend/public/assets/generated/icon-water.dim_64x64.png and frontend/public/assets/generated/icon-sun.dim_64x64.png with appropriate styling."
-        },
-        {
-          "path": "frontend/src/components/Accordion.tsx",
-          "operation": "create",
-          "description": "Create reusable Accordion component with smooth expand/collapse animations. Use max-height transition or Framer Motion for smooth height animation. Support multiple accordions with individual open/close states. Include animated chevron icon rotation."
-        }
-      ]
-    },
-    {
-      "id": "REQ-12",
-      "summary": "Build plant care guide page with blog layout and reading progress bar",
-      "acceptanceCriteria": [
-        "Blog entries animate in as user scrolls",
-        "Progress bar remains sticky at top while scrolling",
-        "Progress bar accurately reflects reading position",
-        "Layout is clean and readable with good typography"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/CareGuide.tsx",
-          "operation": "create",
-          "description": "Create CareGuide page with blog-style layout. Display care guide articles with scroll-triggered animations using Intersection Observer. Implement ReadingProgressBar component at top. Use clean typography with appropriate line height and spacing for readability. Reference generated icon frontend/public/assets/generated/icon-growth.dim_64x64.png for article decorative elements."
-        },
-        {
-          "path": "frontend/src/components/ReadingProgressBar.tsx",
-          "operation": "create",
-          "description": "Create ReadingProgressBar component that tracks scroll position and displays progress percentage. Use sticky positioning to remain at top of viewport. Calculate progress based on document height and scroll position. Animate progress bar width smoothly using CSS transitions."
-        },
-        {
-          "path": "frontend/src/components/ArticleCard.tsx",
-          "operation": "create",
-          "description": "Create ArticleCard component for care guide entries with scroll-triggered animation. Implement fade and slide-up animation when entering viewport using Intersection Observer."
-        },
-        {
-          "path": "frontend/src/data/careGuides.ts",
-          "operation": "create",
-          "description": "Create static care guide articles data with titles, excerpts, content, categories, and reading time estimates."
-        }
-      ]
-    },
-    {
-      "id": "REQ-13",
-      "summary": "Implement slide-in cart drawer with add-to-cart animation and quantity updates",
-      "acceptanceCriteria": [
-        "Cart drawer slides in smoothly from side",
-        "Add-to-cart shows item flying to cart icon",
-        "Quantity controls update with smooth transitions",
-        "Cart persists in browser storage",
-        "Empty cart state is handled gracefully"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/CartDrawer.tsx",
-          "operation": "create",
-          "description": "Create CartDrawer component that slides in from right side using transform translateX animation. Display cart items with images, names, prices, and quantity controls. Implement smooth quantity update transitions. Show cart total. Include empty cart state with illustration and messaging. Add close button with smooth transition."
-        },
-        {
-          "path": "frontend/src/components/AddToCartAnimation.tsx",
-          "operation": "create",
-          "description": "Create AddToCartAnimation component that animates product image flying from product card to cart icon in header. Use absolute positioning and CSS transforms to create parabolic motion path. Trigger animation on add-to-cart button click."
-        },
-        {
-          "path": "frontend/src/hooks/useCart.ts",
-          "operation": "create",
-          "description": "Create custom hook to manage cart state using localStorage for persistence. Provide functions for adding items, removing items, updating quantities, clearing cart, and calculating totals. Implement cart synchronization across browser tabs using storage events. Return cart items, total, and action functions."
-        },
-        {
-          "path": "frontend/src/context/CartContext.tsx",
-          "operation": "create",
-          "description": "Create CartContext to provide cart state and actions globally using React Context API. Wrap App component with CartProvider to make cart accessible throughout application."
-        }
-      ]
-    },
-    {
-      "id": "REQ-14",
-      "summary": "Create checkout page interface with smooth form transitions",
-      "acceptanceCriteria": [
-        "Checkout form has smooth step transitions",
-        "Form fields have elegant focus states",
-        "Validation errors appear with smooth animations",
-        "Order summary updates smoothly as items change"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/pages/Checkout.tsx",
-          "operation": "create",
-          "description": "Create Checkout page with multi-step form (shipping info, payment info, review). Implement smooth transitions between steps using slide or fade animations. Display order summary sidebar that updates in real-time. Add form validation with smooth error message animations. Include checkout completion with success message."
-        },
-        {
-          "path": "frontend/src/components/CheckoutForm.tsx",
-          "operation": "create",
-          "description": "Create CheckoutForm component with form fields for customer information. Implement elegant focus states with smooth transitions on input borders and labels. Add form validation logic with animated error messages that slide in below fields. Use controlled inputs with smooth value updates."
-        },
-        {
-          "path": "frontend/src/components/OrderSummary.tsx",
-          "operation": "create",
-          "description": "Create OrderSummary component displaying cart items, subtotal, shipping, and total. Implement smooth updates when quantities change using CSS transitions on number values."
-        }
-      ]
-    },
-    {
-      "id": "REQ-15",
-      "summary": "Build sticky navbar with blur background on scroll and animated menu",
-      "acceptanceCriteria": [
-        "Navbar remains sticky at top of page",
-        "Background blurs when scrolling down",
-        "Active menu item has animated underline indicator",
-        "Mobile menu opens with fullscreen smooth animation",
-        "Navbar is fully responsive"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Navbar.tsx",
-          "operation": "create",
-          "description": "Create Navbar component with sticky positioning. Implement scroll detection to add blur background (backdrop-filter: blur()) after scrolling threshold. Add animated underline indicator for active menu item using transform and transition. Include logo, navigation links, cart icon with item count badge, and mobile menu toggle. Ensure responsive behavior with different layouts for mobile/desktop."
-        },
-        {
-          "path": "frontend/src/components/MobileMenu.tsx",
-          "operation": "create",
-          "description": "Create MobileMenu component that opens with fullscreen overlay animation. Implement smooth slide-in animation from top or side with backdrop fade-in. Include navigation links, close button, and smooth exit animation. Add staggered animation for menu items appearing."
-        },
-        {
-          "path": "frontend/src/hooks/useScroll.ts",
-          "operation": "create",
-          "description": "Create custom hook to track scroll position and direction. Return boolean states for scroll threshold detection (e.g., scrolled past 100px) to trigger navbar style changes."
-        }
-      ]
-    },
-    {
-      "id": "REQ-16",
-      "summary": "Implement smooth inertia scrolling with parallax effects",
-      "acceptanceCriteria": [
-        "Scrolling has natural inertia feel",
-        "Background and foreground elements move at different speeds for parallax effect",
-        "Plant images have subtle floating animation during scroll",
-        "Section transitions are smooth with no abrupt changes",
-        "Performance remains smooth during scrolling"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add CSS for smooth scrolling behavior using scroll-behavior: smooth on html element. Configure scrollbar styling for premium feel. Add will-change properties for optimized performance on animated elements."
-        },
-        {
-          "path": "frontend/src/hooks/useParallax.ts",
-          "operation": "create",
-          "description": "Create custom hook to calculate parallax offsets based on scroll position. Use requestAnimationFrame for smooth 60fps performance. Return transform values for different parallax speeds (background, midground, foreground layers)."
-        },
-        {
-          "path": "frontend/src/components/ParallaxSection.tsx",
-          "operation": "create",
-          "description": "Create reusable ParallaxSection component that applies parallax effects to background and foreground layers. Implement subtle floating animation for plant images during scroll using transform translateY based on scroll position. Ensure smooth transitions between sections with appropriate z-index layering."
-        }
-      ]
-    },
-    {
-      "id": "REQ-17",
-      "summary": "Add wishlist heart animation with smooth toggle interaction",
-      "acceptanceCriteria": [
-        "Heart icon animates smoothly when clicked",
-        "Filled and unfilled states transition smoothly",
-        "Animation has a bouncy, delightful feel",
-        "Wishlist state is stored in browser"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/WishlistButton.tsx",
-          "operation": "create",
-          "description": "Create WishlistButton component with heart icon that toggles between outlined and filled states. Implement bouncy scale animation on click using CSS keyframes or Framer Motion spring animation. Add smooth color transition between states. Include haptic-like visual feedback."
-        },
-        {
-          "path": "frontend/src/hooks/useWishlist.ts",
-          "operation": "create",
-          "description": "Create custom hook to manage wishlist state using localStorage. Provide functions to add/remove items from wishlist and check if item is wishlisted. Return wishlist items array and toggle function."
-        }
-      ]
-    },
-    {
-      "id": "REQ-18",
-      "summary": "Implement button ripple or glow effect on interaction",
-      "acceptanceCriteria": [
-        "Buttons show ripple effect on click",
-        "Glow effect appears smoothly on hover",
-        "Effect is subtle and premium feeling",
-        "Works consistently across all button types"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Button.tsx",
-          "operation": "create",
-          "description": "Create reusable Button component with ripple effect on click. Implement ripple animation using pseudo-element that scales and fades out from click position. Add subtle glow effect on hover using box-shadow transition. Support different button variants (primary, secondary, outline) with consistent animation behavior."
-        },
-        {
-          "path": "frontend/src/hooks/useRipple.ts",
-          "operation": "create",
-          "description": "Create custom hook to generate ripple effect. Calculate ripple position based on click coordinates. Return ripple state and handlers for adding/removing ripple elements with animation lifecycle management."
-        }
-      ]
-    },
-    {
-      "id": "REQ-19",
-      "summary": "Add smooth dropdown expansion animations",
-      "acceptanceCriteria": [
-        "Dropdowns expand with smooth height transition",
-        "Options fade in with staggered timing",
-        "Close animation is equally smooth",
-        "Dropdown is accessible via keyboard"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/Dropdown.tsx",
-          "operation": "create",
-          "description": "Create reusable Dropdown component with smooth expand/collapse animation using max-height or Framer Motion. Implement staggered fade-in for dropdown options. Add smooth close animation that reverses expansion. Ensure keyboard accessibility with arrow key navigation, Enter to select, and Escape to close. Include proper ARIA attributes."
-        }
-      ]
-    },
-    {
-      "id": "REQ-20",
-      "summary": "Implement smooth page-to-page transitions between routes",
-      "acceptanceCriteria": [
-        "Navigation between pages has smooth transition",
-        "No abrupt white flash or jarring reload",
-        "Exit and enter animations coordinate smoothly",
-        "Browser back/forward buttons respect transitions"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/App.tsx",
-          "operation": "modify",
-          "description": "Wrap route components with page transition wrapper. Implement smooth fade or slide transitions between route changes using Framer Motion AnimatePresence or CSS transitions. Ensure exit animation completes before enter animation begins. Handle browser navigation (back/forward) with same smooth transitions."
-        },
-        {
-          "path": "frontend/src/components/PageTransition.tsx",
-          "operation": "create",
-          "description": "Create PageTransition wrapper component that handles route transition animations. Implement coordinated exit and enter animations (fade, slide, or combination). Use route key to trigger transitions on route change. Optimize for smooth 60fps performance."
-        }
-      ]
-    },
-    {
-      "id": "REQ-21",
-      "summary": "Create loading animation using leaf or growing plant concept",
-      "acceptanceCriteria": [
-        "Loading indicator features organic plant/leaf animation",
-        "Animation loops smoothly",
-        "Appears during navigation and async operations",
-        "Design matches overall aesthetic"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/components/LoadingSpinner.tsx",
-          "operation": "create",
-          "description": "Create LoadingSpinner component with organic plant/leaf animation concept. Implement growing plant or rotating leaf animation using CSS keyframes or SVG animation. Ensure smooth infinite loop. Use soft green colors matching site aesthetic. Reference frontend/public/assets/generated/icon-growth.dim_64x64.png or create custom SVG animation."
-        },
-        {
-          "path": "frontend/src/hooks/useLoading.ts",
-          "operation": "create",
-          "description": "Create custom hook to manage loading state during async operations and page transitions. Return loading boolean and functions to show/hide loading indicator."
-        }
-      ]
-    },
-    {
-      "id": "REQ-22",
-      "summary": "Apply minimal luxury eco aesthetic with glassmorphism, soft colors, and premium polish",
-      "acceptanceCriteria": [
-        "Color palette uses soft greens, earth tones, and beige",
-        "UI elements have glassmorphism effect with blur and transparency",
-        "Shadows are soft and subtle throughout",
-        "Grid layouts have generous whitespace",
-        "Overall feel is premium, calm, and organic",
-        "Design quality matches Apple-level polish"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Configure Tailwind theme with custom color palette including soft greens (e.g., #C8E6C9, #81C784), earth tones (e.g., #A1887F, #8D6E63), beige backgrounds (e.g., #F5F5DC, #FAFAF5), and complementary neutrals. Define custom shadow scales for soft, subtle shadows. Add custom spacing scale with generous whitespace values. Configure glassmorphism utilities (backdrop-blur, background opacity)."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Define global design system styles including glassmorphism classes with backdrop-filter blur and semi-transparent backgrounds. Set up premium typography with appropriate font weights, line heights, and letter spacing. Define soft shadow utilities with multiple elevation levels. Add CSS custom properties for consistent design tokens (colors, spacing, radii, shadows). Ensure prefers-reduced-motion support for accessibility."
-        },
-        {
-          "path": "frontend/src/components/GlassCard.tsx",
-          "operation": "create",
-          "description": "Create reusable GlassCard component with glassmorphism effect (backdrop-filter: blur, semi-transparent background, soft border). Support different variants and sizes. Use for cards, modals, and elevated UI elements throughout the application."
-        }
-      ]
-    },
-    {
-      "id": "REQ-23",
-      "summary": "Create static product data with comprehensive plant information",
-      "acceptanceCriteria": [
-        "At least 12-15 example plants are included",
-        "Each plant has complete product information",
-        "Data structure is clean and easily editable",
-        "Images are organized and properly referenced",
-        "Multiple categories represented"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/data/products.ts",
-          "operation": "modify",
-          "description": "Expand product data array to include 12-15 plants with complete information: id, name, scientific name, description, price, images array (main + gallery), category, care requirements (waterLevel: low/medium/high, sunlightLevel: low/medium/bright, difficulty: easy/moderate/hard), size, pot type, inStock boolean, featured boolean, rating. Reference all generated product images: frontend/public/assets/generated/succulent-1.dim_400x400.png, frontend/public/assets/generated/fiddle-leaf.dim_400x400.png, frontend/public/assets/generated/snake-plant.dim_400x400.png, frontend/public/assets/generated/pothos.dim_400x400.png, frontend/public/assets/generated/peace-lily.dim_400x400.png, frontend/public/assets/generated/rubber-plant.dim_400x400.png, frontend/public/assets/generated/zz-plant.dim_400x400.png, frontend/public/assets/generated/calathea.dim_400x400.png, frontend/public/assets/generated/bird-paradise.dim_400x400.png, frontend/public/assets/generated/string-pearls.dim_400x400.png, frontend/public/assets/generated/aloe-vera.dim_400x400.png, frontend/public/assets/generated/boston-fern.dim_400x400.png, frontend/public/assets/generated/cactus-mix.dim_400x400.png. Organize in clean TypeScript interfaces for type safety."
-        },
-        {
-          "path": "frontend/src/types/product.ts",
-          "operation": "create",
-          "description": "Define TypeScript interfaces for Product, Category, CareRequirements, and related types. Ensure type safety across application."
-        }
-      ]
-    },
-    {
-      "id": "REQ-24",
-      "summary": "Implement frontend-only shopping cart using browser localStorage",
-      "acceptanceCriteria": [
-        "Cart data persists in browser between sessions",
-        "Add, remove, and update quantity functions work correctly",
-        "Cart total calculates accurately",
-        "Cart icon shows item count badge",
-        "Cart syncs across browser tabs"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/hooks/useCart.ts",
-          "operation": "modify",
-          "description": "Ensure complete cart functionality including localStorage persistence with JSON serialization. Implement cart item management (add, remove, update quantity, clear). Calculate totals including subtotal, tax (optional), and shipping (optional). Add item count calculation for badge. Implement cross-tab synchronization using storage event listener. Handle edge cases (duplicate adds, quantity limits, removed items)."
-        },
-        {
-          "path": "frontend/src/context/CartContext.tsx",
-          "operation": "modify",
-          "description": "Ensure CartContext provides all cart state and actions globally. Initialize cart from localStorage on app mount. Persist cart changes to localStorage automatically. Provide clear cart API to all components."
-        },
-        {
-          "path": "frontend/src/components/CartIcon.tsx",
-          "operation": "create",
-          "description": "Create CartIcon component for navbar displaying cart icon with animated item count badge. Implement badge animation when count changes (scale bounce). Add smooth pulse animation when items are added. Handle click to open CartDrawer."
-        }
-      ]
-    },
-    {
-      "id": "REQ-25",
-      "summary": "Ensure smooth, lightweight, and premium animations with fast performance",
-      "acceptanceCriteria": [
-        "Page load time is under 3 seconds",
-        "Animations run at 60fps without jank",
-        "Motion is purposeful and not overwhelming",
-        "Users can navigate without distraction",
-        "Performance is optimized for smooth experience"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add performance optimization CSS including will-change properties for animated elements, contain properties for layout optimization, and transform/opacity for GPU acceleration. Add prefers-reduced-motion media query to disable animations for accessibility. Ensure all animations use transform and opacity (GPU-accelerated) rather than layout properties."
-        },
-        {
-          "path": "frontend/src/utils/animations.ts",
-          "operation": "create",
-          "description": "Create animation utility functions and constants for consistent timing, easing curves, and duration values across the application. Define standard animation variants for Framer Motion. Provide performance-optimized animation configurations."
-        },
-        {
-          "path": "frontend/vite.config.ts",
-          "operation": "modify",
-          "description": "Optimize Vite build configuration for performance: enable code splitting, configure chunk size warnings, add image optimization, enable CSS minification, configure bundle analysis. Ensure fast production builds with optimized asset loading."
-        }
-      ]
-    },
-    {
-      "id": "REQ-26",
-      "summary": "Make website fully responsive across all devices",
-      "acceptanceCriteria": [
-        "Layout adapts smoothly to all screen sizes",
-        "Touch interactions work on mobile devices",
-        "Mobile navigation is intuitive and animated",
-        "Typography scales appropriately",
-        "Images are optimized for different viewports"
-      ],
-      "file_operations": [
-        {
-          "path": "frontend/tailwind.config.js",
-          "operation": "modify",
-          "description": "Configure responsive breakpoints (sm: 640px, md: 768px, lg: 1024px, xl: 1280px, 2xl: 1536px). Define responsive typography scale. Configure responsive spacing and layout utilities. Add container configurations with responsive padding."
-        },
-        {
-          "path": "frontend/src/components/Layout.tsx",
-          "operation": "create",
-          "description": "Create Layout component wrapping all pages with Navbar, main content area, and Footer. Implement responsive container widths and padding. Handle mobile vs desktop layout differences. Ensure touch-friendly spacing on mobile devices."
-        },
-        {
-          "path": "frontend/src/hooks/useMediaQuery.ts",
-          "operation": "create",
-          "description": "Create custom hook to detect screen size and breakpoints. Return boolean states for isMobile, isTablet, isDesktop. Use window.matchMedia for accurate media query detection. Update on window resize."
-        },
-        {
-          "path": "frontend/src/index.css",
-          "operation": "modify",
-          "description": "Add responsive typography with fluid font sizes using clamp(). Define responsive spacing utilities. Add touch-target sizing for mobile (minimum 44x44px). Configure responsive image styles with object-fit. Add mobile-specific styles for better touch interactions."
+          "description": "Remove all CSS animations and transitions that affect background colors or create animated gradient overlays in the hero section. The background should remain completely static using only the botanical image with no color changes or movement effects. Preserve other hero section animations like text fade-in and floating elements that do not relate to background color transitions."
         }
       ]
     }
