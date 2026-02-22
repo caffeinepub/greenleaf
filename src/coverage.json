@@ -1,69 +1,67 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-21T18:23:36.166Z",
+  "generatedAt": "2026-02-22T10:26:11.769Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
   },
   "requirements": {
     "total": 5,
-    "implemented": 5,
+    "implemented": 4,
     "items": [
       {
-        "id": "REQ-37",
-        "summary": "Replace the video background in the hero section (frontend/src/pages/Home.tsx) with a static image of multiple plants from a botanical garden or plant collection",
+        "id": "REQ-1",
+        "summary": "Apply sage green background color to the Shop page (/shop route) while maintaining all existing functionality, filters, and product grid layout",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/Shop.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/Shop.tsx"
         ]
       },
       {
-        "id": "REQ-38",
-        "summary": "Remove all overlay elements from the hero section background image including dark overlays, gradient overlays, and any semi-transparent layers",
+        "id": "REQ-2",
+        "summary": "Apply sage green background color to the Product Detail page (/product/:id route) while preserving all product information display, add-to-cart functionality, and related products section",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/ProductDetail.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/ProductDetail.tsx"
         ]
       },
       {
-        "id": "REQ-39",
-        "summary": "Add text shadow effect to the hero section headline text to ensure readability against the static botanical image background",
+        "id": "REQ-3",
+        "summary": "Apply sage green background color to the Care Guide page (/care-guide route) while maintaining the article card layout, reading progress bar, and scroll animations",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/CareGuide.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/CareGuide.tsx"
         ]
       },
       {
-        "id": "REQ-40",
-        "summary": "Ensure no solid color box or background container is added behind the headline text in the hero section",
+        "id": "REQ-4",
+        "summary": "Apply sage green background color to the Checkout page (/checkout route) while preserving the multi-step form, order summary, and cart validation",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/Checkout.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
+          "frontend/src/pages/Checkout.tsx"
         ]
       },
       {
-        "id": "REQ-41",
-        "summary": "Remove all dynamic color transition animations and animated gradient effects from the hero section background",
-        "status": "implemented",
+        "id": "REQ-5",
+        "summary": "Keep the Home page completely unchanged, preserving the existing video background and all current styling and elements",
+        "status": "missing",
         "plannedFiles": [
           "frontend/src/pages/Home.tsx"
         ],
-        "matchedFiles": [
-          "frontend/src/pages/Home.tsx"
-        ]
+        "matchedFiles": []
       }
     ]
   },
@@ -72,8 +70,10 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/public/assets/generated/hero-botanical-garden.dim_1920x1080.png",
-    "frontend/src/pages/Home.tsx",
+    "frontend/src/pages/CareGuide.tsx",
+    "frontend/src/pages/Checkout.tsx",
+    "frontend/src/pages/ProductDetail.tsx",
+    "frontend/src/pages/Shop.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

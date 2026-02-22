@@ -86,7 +86,7 @@ export default function Shop() {
   );
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6">
+    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 bg-sage-50">
       <div className="container mx-auto">
         <div className="mb-8">
           <h1 className="text-4xl sm:text-5xl font-bold text-sage-900 mb-4">

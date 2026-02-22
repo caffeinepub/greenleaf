@@ -31,7 +31,7 @@ export default function Checkout() {
 
   if (items.length === 0) {
     return (
-      <div className="min-h-screen pt-24 px-4 sm:px-6">
+      <div className="min-h-screen pt-24 px-4 sm:px-6 bg-sage-50">
         <div className="container mx-auto text-center">
           <h1 className="text-3xl font-bold text-sage-900 mb-4">
             Your cart is empty
@@ -48,7 +48,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6">
+    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 bg-sage-50">
       <div className="container mx-auto max-w-6xl">
         <Link
           to="/shop"

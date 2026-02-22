@@ -1,88 +1,85 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Replace video hero with static botanical image and text shadow",
+  "title": "Apply sage green backgrounds to all pages except home page",
   "requirements": [
     {
-      "id": "REQ-37",
-      "summary": "Replace video background in hero section with static botanical garden image",
+      "id": "REQ-1",
+      "summary": "Apply sage green background color to the Shop page while maintaining all existing functionality, filters, and product grid layout",
       "acceptanceCriteria": [
-        "Video element is removed from hero section",
-        "Static image element displays botanical/garden scene with multiple plants",
-        "Image covers full hero section width and height",
-        "Image uses object-fit: cover for proper scaling"
+        "Shop page displays sage green background color",
+        "All filters, search, and product grid remain fully functional",
+        "Text and UI elements remain readable against sage green background"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/pages/Shop.tsx",
           "operation": "modify",
-          "description": "Replace the video element in the hero section with an img element using the generated botanical garden image at frontend/public/assets/generated/hero-botanical-garden.dim_1920x1080.png. Ensure the image uses object-fit: cover and covers the full hero section dimensions while maintaining the existing layout structure and text positioning."
+          "description": "Add sage green background color using existing Tailwind bg-sage-50 or bg-sage-100 class to the main container div. Ensure the background color spans the full page height and width. Verify that filter controls, product grid, and all interactive elements maintain proper contrast and readability against the sage green background."
         }
       ]
     },
     {
-      "id": "REQ-38",
-      "summary": "Remove all overlay elements from hero section background",
+      "id": "REQ-2",
+      "summary": "Apply sage green background color to the Product Detail page while preserving all product information display, add-to-cart functionality, and related products section",
       "acceptanceCriteria": [
-        "No overlay div elements are rendered on top of the background image",
-        "Background image is fully visible without any darkening or color filters",
-        "No CSS filters or opacity adjustments are applied to the image"
+        "Product detail page displays sage green background color",
+        "All product images, descriptions, and interactive elements remain functional",
+        "Related products section maintains proper styling"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/pages/ProductDetail.tsx",
           "operation": "modify",
-          "description": "Remove all overlay div elements from the hero section including dark overlays, gradient overlays, and any semi-transparent layers. Ensure no CSS properties like opacity, filter, or background-color are applied that would obscure the botanical image. The image should be fully visible without any darkening effects."
+          "description": "Add sage green background color using existing Tailwind bg-sage-50 or bg-sage-100 class to the main container div. Ensure the background spans the full page area including the product images, details section, care indicators, and related products. Maintain proper contrast for all text and interactive elements including the add-to-cart button and wishlist button."
         }
       ]
     },
     {
-      "id": "REQ-39",
-      "summary": "Add text shadow effect to hero headline for readability",
+      "id": "REQ-3",
+      "summary": "Apply sage green background color to the Care Guide page while maintaining the article card layout, reading progress bar, and scroll animations",
       "acceptanceCriteria": [
-        "Headline text has visible text-shadow CSS property applied",
-        "Text shadow provides sufficient contrast for readability",
-        "Text shadow is subtle and does not create harsh visual artifacts",
-        "All headline text elements in the hero section have shadow applied"
+        "Care guide page displays sage green background color",
+        "Article cards, categories, and reading times remain clearly visible",
+        "Scroll animations and progress bar continue to function properly"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/pages/CareGuide.tsx",
           "operation": "modify",
-          "description": "Add text-shadow CSS property to all headline text elements in the hero section to ensure readability against the botanical image background. Use a subtle shadow effect that provides sufficient contrast without creating harsh visual artifacts (e.g., text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6))."
+          "description": "Add sage green background color using existing Tailwind bg-sage-50 or bg-sage-100 class to the main container div. Ensure the background encompasses the reading progress bar, article cards grid, and all content sections. Verify that the progress bar visibility, article card styling, and scroll animations remain functional and visually clear against the sage green background."
         }
       ]
     },
     {
-      "id": "REQ-40",
-      "summary": "Ensure no solid background container behind headline text",
+      "id": "REQ-4",
+      "summary": "Apply sage green background color to the Checkout page while preserving the multi-step form, order summary, and cart validation",
       "acceptanceCriteria": [
-        "Headline text does not have a background-color property",
-        "No container div with background color wraps the headline",
-        "Text appears directly over the botanical image with only text shadow for visibility"
+        "Checkout page displays sage green background color",
+        "All form fields, step indicators, and order summary remain readable and functional",
+        "Cart validation and checkout flow work without issues"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/pages/Home.tsx",
+          "path": "frontend/src/pages/Checkout.tsx",
           "operation": "modify",
-          "description": "Verify that no background-color property is applied to headline text elements and no container div with background color wraps the headline. The text should appear directly over the botanical image with only the text shadow providing visibility enhancement."
+          "description": "Add sage green background color using existing Tailwind bg-sage-50 or bg-sage-100 class to the main container div. Ensure the background covers the entire checkout area including the step indicator, form sections, and order summary. Maintain proper contrast for form fields, labels, step progress indicators, and the order summary panel to ensure readability and usability."
         }
       ]
     },
     {
-      "id": "REQ-41",
-      "summary": "Remove dynamic color transition animations from hero background",
+      "id": "REQ-5",
+      "summary": "Keep the Home page completely unchanged, preserving the existing video background and all current styling and elements",
       "acceptanceCriteria": [
-        "No CSS animations or transitions affect the background color",
-        "No animated gradient overlays are present",
-        "Background remains completely static with no color changes or movements",
-        "Hero section uses only the static botanical image without any dynamic effects"
+        "Home page retains video background without any color changes",
+        "All hero section elements, featured products, categories, and testimonials remain as currently implemented",
+        "No visual or functional changes applied to home page"
       ],
       "file_operations": [
         {
           "path": "frontend/src/pages/Home.tsx",
           "operation": "modify",
-          "description": "Remove all CSS animations and transitions that affect background colors or create animated gradient overlays in the hero section. The background should remain completely static using only the botanical image with no color changes or movement effects. Preserve other hero section animations like text fade-in and floating elements that do not relate to background color transitions."
+          "description": "No changes required - verify that no sage green background has been inadvertently applied to the home page. Ensure the video background, hero section, and all existing styling remain completely unchanged."
         }
       ]
     }

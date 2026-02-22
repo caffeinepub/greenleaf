@@ -13,7 +13,7 @@ export default function ProductDetail() {
 
   if (!product) {
     return (
-      <div className="min-h-screen pt-24 px-4 sm:px-6">
+      <div className="min-h-screen pt-24 px-4 sm:px-6 bg-sage-50">
         <div className="container mx-auto text-center">
           <h1 className="text-3xl font-bold text-sage-900 mb-4">
             Product not found
@@ -40,7 +40,7 @@ export default function ProductDetail() {
   };
 
   return (
-    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6">
+    <div className="min-h-screen pt-24 pb-12 px-4 sm:px-6 bg-sage-50">
       <div className="container mx-auto">
         <Link
           to="/shop"
@@ -52,7 +52,7 @@ export default function ProductDetail() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16">
           {/* Image */}
           <div className="animate-in slide-in-from-left fade-in duration-700">
-            <div className="aspect-square rounded-2xl overflow-hidden bg-sage-50">
+            <div className="aspect-square rounded-2xl overflow-hidden bg-white">
               <img
                 src={product.images[0]}
                 alt={product.name}
@@ -99,7 +99,7 @@ export default function ProductDetail() {
 
             {/* Care Indicators */}
             <div className="grid grid-cols-2 gap-4 mb-8">
-              <div className="flex items-center gap-3 p-4 bg-sage-50 rounded-xl animate-in zoom-in-50 duration-500 delay-200">
+              <div className="flex items-center gap-3 p-4 bg-white rounded-xl animate-in zoom-in-50 duration-500 delay-200">
                 <div className="p-2 bg-blue-100 rounded-full">
                   <Droplet className="w-6 h-6 text-blue-600" />
                 </div>
@@ -110,7 +110,7 @@ export default function ProductDetail() {
                   </p>
                 </div>
               </div>
-              <div className="flex items-center gap-3 p-4 bg-sage-50 rounded-xl animate-in zoom-in-50 duration-500 delay-300">
+              <div className="flex items-center gap-3 p-4 bg-white rounded-xl animate-in zoom-in-50 duration-500 delay-300">
                 <div className="p-2 bg-amber-100 rounded-full">
                   <Sun className="w-6 h-6 text-amber-600" />
                 </div>
@@ -141,11 +141,11 @@ export default function ProductDetail() {
 
             {/* Additional Info */}
             <div className="mt-8 space-y-4">
-              <div className="p-4 bg-sage-50 rounded-xl">
+              <div className="p-4 bg-white rounded-xl">
                 <h3 className="font-semibold text-sage-800 mb-2">Size</h3>
                 <p className="text-foreground/70">{product.size}</p>
               </div>
-              <div className="p-4 bg-sage-50 rounded-xl">
+              <div className="p-4 bg-white rounded-xl">
                 <h3 className="font-semibold text-sage-800 mb-2">Difficulty</h3>
                 <p className="text-foreground/70 capitalize">
                   {product.difficulty}

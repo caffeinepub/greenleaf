@@ -2,10 +2,10 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-replace-the-video-background-in-the-hero-section-frontend-src-pages-home-tsx-with-a-static-image-of-multiple-plants-from-a-botanical-garden-or-plant-collection",
-      "featureTitle": "Replace the video background in the hero section (frontend/src/pages/Home.tsx) with a static image of multiple plants from a botanical garden or plant collection",
+      "featureId": "feature-apply-sage-green-background-color-to-the-shop-page-shop-route-while-maintaining-all-existing-functionality-filters-and-product-grid-layout",
+      "featureTitle": "Apply sage green background color to the Shop page (/shop route) while maintaining all existing functionality, filters, and product grid layout",
       "files": [
-        "frontend/src/pages/Home.tsx"
+        "frontend/src/pages/Shop.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -15,15 +15,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-37"
+        "REQ-1"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-remove-all-overlay-elements-from-the-hero-section-background-image-including-dark-overlays-gradient-overlays-and-any-semi-transparent-layers",
-      "featureTitle": "Remove all overlay elements from the hero section background image including dark overlays, gradient overlays, and any semi-transparent layers",
+      "featureId": "feature-apply-sage-green-background-color-to-the-product-detail-page-product-id-route-while-preserving-all-product-information-display-add-to-cart-functionality-and-related-products-section",
+      "featureTitle": "Apply sage green background color to the Product Detail page (/product/:id route) while preserving all product information display, add-to-cart functionality, and related products section",
       "files": [
-        "frontend/src/pages/Home.tsx"
+        "frontend/src/pages/ProductDetail.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -33,15 +33,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-38"
+        "REQ-2"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-add-text-shadow-effect-to-the-hero-section-headline-text-to-ensure-readability-against-the-static-botanical-image-background",
-      "featureTitle": "Add text shadow effect to the hero section headline text to ensure readability against the static botanical image background",
+      "featureId": "feature-apply-sage-green-background-color-to-the-care-guide-page-care-guide-route-while-maintaining-the-article-card-layout-reading-progress-bar-and-scroll-animations",
+      "featureTitle": "Apply sage green background color to the Care Guide page (/care-guide route) while maintaining the article card layout, reading progress bar, and scroll animations",
       "files": [
-        "frontend/src/pages/Home.tsx"
+        "frontend/src/pages/CareGuide.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -51,15 +51,15 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-39"
+        "REQ-3"
       ],
       "confidence": "high"
     },
     {
-      "featureId": "feature-ensure-no-solid-color-box-or-background-container-is-added-behind-the-headline-text-in-the-hero-section",
-      "featureTitle": "Ensure no solid color box or background container is added behind the headline text in the hero section",
+      "featureId": "feature-apply-sage-green-background-color-to-the-checkout-page-checkout-route-while-preserving-the-multi-step-form-order-summary-and-cart-validation",
+      "featureTitle": "Apply sage green background color to the Checkout page (/checkout route) while preserving the multi-step form, order summary, and cart validation",
       "files": [
-        "frontend/src/pages/Home.tsx"
+        "frontend/src/pages/Checkout.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",
@@ -69,25 +69,7 @@
         "github-export-icp-cli@1.0.0"
       ],
       "testIds": [
-        "REQ-40"
-      ],
-      "confidence": "high"
-    },
-    {
-      "featureId": "feature-remove-all-dynamic-color-transition-animations-and-animated-gradient-effects-from-the-hero-section-background",
-      "featureTitle": "Remove all dynamic color transition animations and animated gradient effects from the hero section background",
-      "files": [
-        "frontend/src/pages/Home.tsx"
-      ],
-      "components": [
-        "core-infrastructure@1.0.2",
-        "shadcn-ui@1.0.0",
-        "build-template-react@1.0.0",
-        "initial-app@1.0.0",
-        "github-export-icp-cli@1.0.0"
-      ],
-      "testIds": [
-        "REQ-41"
+        "REQ-4"
       ],
       "confidence": "high"
     }

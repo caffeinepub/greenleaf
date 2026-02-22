@@ -1,120 +1,114 @@
 {
   "kind": "build_request",
-  "title": "Replace video hero with static botanical image and text shadow",
-  "projectName": "GreenLeaf Plant Store",
+  "title": "Apply sage green backgrounds to all pages except home page",
+  "projectName": "GreenLeaf",
   "priority": "normal",
   "requirements": [
     {
-      "id": "REQ-37",
-      "text": "Replace the video background in the hero section (frontend/src/pages/Home.tsx) with a static image of multiple plants from a botanical garden or plant collection",
+      "id": "REQ-1",
+      "text": "Apply sage green background color to the Shop page (/shop route) while maintaining all existing functionality, filters, and product grid layout",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-5"
+          "msg-user-final"
         ],
         "quotes": [
-          "use image of a multiple plants"
+          "for the other pages like contacts about shopping cart product everything should cohesive with sage green color and this color only should be use for background"
         ]
       },
       "acceptanceCriteria": [
-        "Video element is removed from hero section",
-        "Static image element displays botanical/garden scene with multiple plants",
-        "Image covers full hero section width and height",
-        "Image uses object-fit: cover for proper scaling"
+        "Shop page displays sage green background color",
+        "All filters, search, and product grid remain fully functional",
+        "Text and UI elements remain readable against sage green background"
       ]
     },
     {
-      "id": "REQ-38",
-      "text": "Remove all overlay elements from the hero section background image including dark overlays, gradient overlays, and any semi-transparent layers",
+      "id": "REQ-2",
+      "text": "Apply sage green background color to the Product Detail page (/product/:id route) while preserving all product information display, add-to-cart functionality, and related products section",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-5"
+          "msg-user-final"
         ],
         "quotes": [
-          "do not add any type of overlay over the image"
+          "for the other pages like contacts about shopping cart product everything should cohesive with sage green color and this color only should be use for background"
         ]
       },
       "acceptanceCriteria": [
-        "No overlay div elements are rendered on top of the background image",
-        "Background image is fully visible without any darkening or color filters",
-        "No CSS filters or opacity adjustments are applied to the image"
+        "Product detail page displays sage green background color",
+        "All product images, descriptions, and interactive elements remain functional",
+        "Related products section maintains proper styling"
       ]
     },
     {
-      "id": "REQ-39",
-      "text": "Add text shadow effect to the hero section headline text to ensure readability against the static botanical image background",
+      "id": "REQ-3",
+      "text": "Apply sage green background color to the Care Guide page (/care-guide route) while maintaining the article card layout, reading progress bar, and scroll animations",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-5"
+          "msg-user-final"
         ],
         "quotes": [
-          "only add text shadow effect"
+          "for the other pages like contacts about shopping cart product everything should cohesive with sage green color and this color only should be use for background"
         ]
       },
       "acceptanceCriteria": [
-        "Headline text has visible text-shadow CSS property applied",
-        "Text shadow provides sufficient contrast for readability",
-        "Text shadow is subtle and does not create harsh visual artifacts",
-        "All headline text elements in the hero section have shadow applied"
+        "Care guide page displays sage green background color",
+        "Article cards, categories, and reading times remain clearly visible",
+        "Scroll animations and progress bar continue to function properly"
       ]
     },
     {
-      "id": "REQ-40",
-      "text": "Ensure no solid color box or background container is added behind the headline text in the hero section",
+      "id": "REQ-4",
+      "text": "Apply sage green background color to the Checkout page (/checkout route) while preserving the multi-step form, order summary, and cart validation",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-5"
+          "msg-user-final"
         ],
         "quotes": [
-          "do not add solid color behind the headline"
+          "for the other pages like contacts about shopping cart product everything should cohesive with sage green color and this color only should be use for background"
         ]
       },
       "acceptanceCriteria": [
-        "Headline text does not have a background-color property",
-        "No container div with background color wraps the headline",
-        "Text appears directly over the botanical image with only text shadow for visibility"
+        "Checkout page displays sage green background color",
+        "All form fields, step indicators, and order summary remain readable and functional",
+        "Cart validation and checkout flow work without issues"
       ]
     },
     {
-      "id": "REQ-41",
-      "text": "Remove all dynamic color transition animations and animated gradient effects from the hero section background",
+      "id": "REQ-5",
+      "text": "Keep the Home page completely unchanged, preserving the existing video background and all current styling and elements",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-5"
+          "msg-user-final"
         ],
         "quotes": [
-          "do not put transition dynamic color layout",
-          "do not put a layer of dynamic color"
+          "for home page elements do not make any changes"
         ]
       },
       "acceptanceCriteria": [
-        "No CSS animations or transitions affect the background color",
-        "No animated gradient overlays are present",
-        "Background remains completely static with no color changes or movements",
-        "Hero section uses only the static botanical image without any dynamic effects"
+        "Home page retains video background without any color changes",
+        "All hero section elements, featured products, categories, and testimonials remain as currently implemented",
+        "No visual or functional changes applied to home page"
       ]
     }
   ],
   "constraints": [
-    "Do not modify backend/main.mo",
-    "Maintain existing hero section layout and text positioning",
-    "Preserve all other hero section animations (text fade-in, floating elements) that do not relate to background color transitions",
-    "Keep the hero section responsive across all breakpoints"
+    "Do not modify the home page (/) in any way - keep video background and all existing styling",
+    "Apply sage green color only to backgrounds, not to text or other UI elements",
+    "Maintain all existing functionality and interactive elements on modified pages",
+    "Ensure text readability and proper contrast against sage green backgrounds"
   ],
   "nonGoals": [
-    "Adding video elements or video backgrounds",
-    "Implementing overlay layers of any kind",
-    "Adding background boxes or containers behind text",
-    "Creating animated gradients or color transitions"
+    "Changing the color scheme of the home page",
+    "Modifying button colors, text colors, or other UI element colors beyond backgrounds",
+    "Adding new pages or features",
+    "Restructuring page layouts or component hierarchies"
   ],
   "imageRequirements": {
-    "required": [
-      "Wide botanical garden scene with multiple plants including various green foliage, flowers, and natural lighting for hero section background (hero-botanical-garden.dim_1920x1080.png)"
-    ],
+    "required": [],
     "edits": []
   }
 }

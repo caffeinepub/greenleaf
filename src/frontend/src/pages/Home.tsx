@@ -1,36 +1,45 @@
-import { useRef, useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { ArrowRight, ChevronDown, Heart } from 'lucide-react';
 import { products } from '../data/products';
 import { categories } from '../data/categories';
 import { testimonials } from '../data/testimonials';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
+import { useParallax } from '../hooks/useParallax';
 import ProductCard from '../components/ProductCard';
 
 export default function Home() {
   const benefitsRef = useRef<HTMLDivElement>(null);
   const careTipsRef = useRef<HTMLDivElement>(null);
   const plantBenefitsRef = useRef<HTMLDivElement>(null);
+  const categoriesRef = useRef<HTMLDivElement>(null);
+  const bestSellersRef = useRef<HTMLDivElement>(null);
+  const testimonialsRef = useRef<HTMLDivElement>(null);
+  
   const isBenefitsVisible = useScrollAnimation(benefitsRef);
   const isCareTipsVisible = useScrollAnimation(careTipsRef);
   const isPlantBenefitsVisible = useScrollAnimation(plantBenefitsRef);
+  const isCategoriesVisible = useScrollAnimation(categoriesRef);
+  const isBestSellersVisible = useScrollAnimation(bestSellersRef);
+  const isTestimonialsVisible = useScrollAnimation(testimonialsRef);
+  
   const [email, setEmail] = useState('');
-  const [scrollY, setScrollY] = useState(0);
+  const [heroLoaded, setHeroLoaded] = useState(false);
+  const [videoError, setVideoError] = useState(false);
+
+  const parallaxOffset = useParallax(0.3);
 
   const featuredProducts = products.filter((p) => p.featured).slice(0, 8);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrollY(window.scrollY);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Thank you for subscribing!');
     setEmail('');
+  };
+
+  const handleVideoError = () => {
+    setVideoError(true);
+    setHeroLoaded(true);
   };
 
   const careTips = [
@@ -81,64 +90,88 @@ export default function Home() {
 
   return (
     <div className="overflow-x-hidden">
-      {/* Hero Section with Static Botanical Image Background */}
+      {/* Hero Section with Full-Screen Video Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Static Botanical Image Background */}
-        <img
-          src="/assets/generated/hero-botanical-garden.dim_1920x1080.png"
-          alt="Botanical garden with multiple plants"
-          className="absolute inset-0 w-full h-full object-cover"
-        />
-        
-        {/* Floating Leaf Elements with Parallax */}
-        <img
-          src="/assets/generated/hero-leaf-1.dim_400x400.png"
-          alt=""
-          className="absolute top-20 right-10 w-32 h-32 opacity-20 animate-float-slow pointer-events-none z-[2]"
-          style={{ transform: `translateY(${scrollY * 0.3}px)` }}
-        />
-        <img
-          src="/assets/generated/hero-leaf-2.dim_350x350.png"
-          alt=""
-          className="absolute bottom-32 left-16 w-28 h-28 opacity-15 animate-float-medium pointer-events-none z-[2]"
-          style={{ transform: `translateY(${scrollY * 0.2}px)` }}
-        />
-        <img
-          src="/assets/generated/hero-leaf-1.dim_400x400.png"
-          alt=""
-          className="absolute top-1/3 left-1/4 w-24 h-24 opacity-10 animate-float-fast pointer-events-none hidden md:block z-[2]"
-          style={{ transform: `translateY(${scrollY * 0.4}px) rotate(45deg)` }}
-        />
+        {/* Full-Screen Autoplay Video Background */}
+        {!videoError ? (
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            onLoadedData={() => setHeroLoaded(true)}
+            onError={handleVideoError}
+            poster="/assets/generated/hero-botanical-garden.dim_1920x1080.png"
+            className="absolute inset-0 w-full h-full object-cover"
+          >
+            <source
+              src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4"
+              type="video/mp4"
+            />
+          </video>
+        ) : (
+          <img
+            src="/assets/generated/hero-botanical-garden.dim_1920x1080.png"
+            alt="Botanical garden"
+            className="absolute inset-0 w-full h-full object-cover"
+          />
+        )}
 
-        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto">
-          <h1 
-            className="text-5xl sm:text-6xl md:text-7xl font-bold text-white mb-6 animate-in slide-in-from-bottom-8 fade-in duration-1000"
-            style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6), 0 4px 16px rgba(0, 0, 0, 0.4)' }}
-          >
-            Bring Nature Home
+        {/* Dark Gradient Overlay */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-[1]" />
+
+        {/* Hero Content */}
+        <div
+          className={`relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto transition-opacity duration-1000 ${
+            heroLoaded ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-in slide-in-from-bottom-8 fade-in duration-1000">
+            Bring Nature Into Your Life
           </h1>
-          <p 
-            className="text-xl sm:text-2xl text-white/90 mb-8 animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-200"
-            style={{ textShadow: '0 2px 8px rgba(0, 0, 0, 0.6)' }}
-          >
-            Discover our curated collection of beautiful, healthy plants
+          <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-10 animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-200 leading-relaxed max-w-3xl mx-auto">
+            Transform your space with our curated collection of beautiful indoor plants. 
+            Embrace eco-friendly living and create your personal green sanctuary.
           </p>
-          <Link
-            to="/shop"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-sage-600 text-white rounded-full hover:bg-sage-700 transition-all duration-500 hover:scale-105 hover:shadow-lg font-medium animate-in slide-in-from-bottom-8 fade-in delay-300"
-          >
-            Shop Now <ArrowRight className="w-5 h-5" />
-          </Link>
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in slide-in-from-bottom-8 fade-in delay-300 duration-1000">
+            <Link
+              to="/shop"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-sage-600 text-white rounded-full hover:bg-sage-700 transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(132,169,140,0.5)] font-semibold text-lg"
+            >
+              Shop Plants
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+            <Link
+              to="/shop"
+              className="group inline-flex items-center gap-2 px-8 py-4 bg-transparent text-white border-2 border-white/80 rounded-full hover:bg-white/10 hover:border-white transition-all duration-300 hover:scale-105 hover:shadow-[0_0_30px_rgba(255,255,255,0.3)] font-semibold text-lg backdrop-blur-sm"
+            >
+              Explore Collection
+              <ArrowRight className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
+          </div>
         </div>
 
+        {/* Scroll Indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
-          <ChevronDown className="w-8 h-8 text-white" style={{ filter: 'drop-shadow(0 2px 4px rgba(0, 0, 0, 0.6))' }} />
+          <ChevronDown className="w-8 h-8 text-white drop-shadow-lg" />
         </div>
       </section>
 
-      {/* Plant Care Tips Section */}
-      <section ref={careTipsRef} className="py-24 px-4 sm:px-6 bg-gradient-to-b from-background to-sage-50/30">
-        <div className="container mx-auto max-w-6xl">
+      {/* Plant Care Tips Section with Parallax */}
+      <section
+        ref={careTipsRef}
+        className="py-24 px-4 sm:px-6 bg-gradient-to-b from-background to-sage-50/30 relative overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            transform: `translateY(${parallaxOffset * 0.5}px)`,
+            backgroundImage: 'url(/assets/generated/hero-leaf-1.dim_400x400.png)',
+            backgroundSize: '200px',
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        <div className="container mx-auto max-w-6xl relative z-10">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-sage-900 mb-4">
               Essential Plant Care Tips
@@ -151,7 +184,7 @@ export default function Home() {
             {careTips.map((tip, index) => (
               <div
                 key={index}
-                className={`glass p-8 rounded-2xl shadow-soft transition-all duration-700 hover:shadow-soft-lg hover:-translate-y-1 ${
+                className={`glass p-8 rounded-2xl shadow-soft transition-all duration-700 hover:shadow-soft-lg hover:-translate-y-2 hover:scale-105 ${
                   isCareTipsVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-8'
@@ -162,7 +195,7 @@ export default function Home() {
                   <img
                     src={tip.icon}
                     alt={tip.title}
-                    className="w-16 h-16 object-contain"
+                    className="w-16 h-16 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-sage-800 mb-3 text-center">
@@ -192,7 +225,7 @@ export default function Home() {
             {plantBenefits.map((benefit, index) => (
               <div
                 key={index}
-                className={`glass p-8 rounded-2xl shadow-soft transition-all duration-700 hover:shadow-soft-lg hover:-translate-y-1 ${
+                className={`glass p-8 rounded-2xl shadow-soft transition-all duration-700 hover:shadow-soft-lg hover:-translate-y-2 hover:scale-105 ${
                   isPlantBenefitsVisible
                     ? 'opacity-100 translate-y-0'
                     : 'opacity-0 translate-y-8'
@@ -203,7 +236,7 @@ export default function Home() {
                   <img
                     src={benefit.icon}
                     alt={benefit.title}
-                    className="w-16 h-16 object-contain"
+                    className="w-16 h-16 object-contain transition-transform duration-300 hover:scale-110"
                   />
                 </div>
                 <h3 className="text-xl font-semibold text-sage-800 mb-3 text-center">
@@ -218,9 +251,21 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Featured Categories */}
-      <section className="py-24 px-4 sm:px-6 bg-sage-50/50">
-        <div className="container mx-auto">
+      {/* Featured Categories with Parallax */}
+      <section
+        ref={categoriesRef}
+        className="py-24 px-4 sm:px-6 bg-sage-50/50 relative overflow-hidden"
+      >
+        <div
+          className="absolute inset-0 opacity-5 pointer-events-none"
+          style={{
+            transform: `translateY(${parallaxOffset * 0.3}px)`,
+            backgroundImage: 'url(/assets/generated/hero-leaf-2.dim_350x350.png)',
+            backgroundSize: '180px',
+            backgroundRepeat: 'repeat',
+          }}
+        />
+        <div className="container mx-auto relative z-10">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-sage-900 mb-16">
             Shop by Category
           </h2>
@@ -229,8 +274,12 @@ export default function Home() {
               <Link
                 key={category.id}
                 to="/shop"
-                className="group relative overflow-hidden rounded-2xl bg-white hover:shadow-xl transition-all duration-500 hover:-translate-y-2 animate-in slide-in-from-bottom-8 fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`group relative overflow-hidden rounded-2xl bg-white hover:shadow-xl transition-all duration-500 hover:-translate-y-2 hover:scale-105 ${
+                  isCategoriesVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="aspect-square overflow-hidden">
                   <img
@@ -240,7 +289,7 @@ export default function Home() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-xl font-semibold text-sage-800 mb-2">
+                  <h3 className="text-xl font-semibold text-sage-800 mb-2 transition-colors duration-300 group-hover:text-sage-600">
                     {category.name}
                   </h3>
                   <p className="text-foreground/60 text-sm">
@@ -254,7 +303,7 @@ export default function Home() {
       </section>
 
       {/* Best Sellers */}
-      <section className="py-24 px-4 sm:px-6">
+      <section ref={bestSellersRef} className="py-24 px-4 sm:px-6">
         <div className="container mx-auto">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-sage-900 mb-16">
             Best Sellers
@@ -263,8 +312,12 @@ export default function Home() {
             {featuredProducts.map((product, index) => (
               <div
                 key={product.id}
-                className="animate-in slide-in-from-bottom-8 fade-in"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`transition-all duration-700 ${
+                  isBestSellersVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <ProductCard product={product} />
               </div>
@@ -298,14 +351,14 @@ export default function Home() {
               return (
                 <div
                   key={index}
-                  className={`text-center p-8 rounded-2xl glass shadow-soft transition-all duration-700 ${
+                  className={`text-center p-8 rounded-2xl glass shadow-soft transition-all duration-700 hover:shadow-soft-lg hover:-translate-y-2 hover:scale-105 ${
                     isBenefitsVisible
                       ? 'opacity-100 translate-y-0'
                       : 'opacity-0 translate-y-8'
                   }`}
                   style={{ transitionDelay: `${index * 150}ms` }}
                 >
-                  <div className="inline-flex items-center justify-center w-16 h-16 bg-sage-100 rounded-full mb-4">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-sage-100 rounded-full mb-4 transition-transform duration-300 hover:scale-110">
                     <Icon className="w-8 h-8 text-sage-600" />
                   </div>
                   <h3 className="text-xl font-semibold text-sage-800 mb-2">
@@ -320,7 +373,7 @@ export default function Home() {
       </section>
 
       {/* Testimonials */}
-      <section className="py-24 px-4 sm:px-6">
+      <section ref={testimonialsRef} className="py-24 px-4 sm:px-6">
         <div className="container mx-auto max-w-4xl">
           <h2 className="text-4xl md:text-5xl font-bold text-center text-sage-900 mb-16">
             What Our Customers Say
@@ -329,12 +382,16 @@ export default function Home() {
             {testimonials.map((testimonial, index) => (
               <div
                 key={testimonial.id}
-                className="p-6 glass rounded-2xl shadow-soft animate-in slide-in-from-bottom-8 fade-in hover:shadow-soft-lg transition-all duration-300"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`p-6 glass rounded-2xl shadow-soft hover:shadow-soft-lg transition-all duration-700 hover:-translate-y-2 hover:scale-105 ${
+                  isTestimonialsVisible
+                    ? 'opacity-100 translate-y-0'
+                    : 'opacity-0 translate-y-8'
+                }`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <span key={i} className="text-amber-400">
+                    <span key={i} className="text-amber-400 text-xl">
                       ★
                     </span>
                   ))}
@@ -375,7 +432,7 @@ export default function Home() {
             />
             <button
               type="submit"
-              className="px-8 py-3 bg-sage-600 text-white rounded-full hover:bg-sage-700 transition-all duration-300 hover:scale-105 font-medium"
+              className="px-8 py-3 bg-sage-600 text-white rounded-full hover:bg-sage-700 transition-all duration-300 hover:scale-105 hover:shadow-lg font-medium"
             >
               Subscribe
             </button>

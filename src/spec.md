@@ -1,14 +1,13 @@
 # Specification
 
 ## Summary
-**Goal:** Replace the hero section video background with a static botanical garden image and add text shadow for readability.
+**Goal:** Apply sage green background color to all pages except the home page to create a cohesive visual design.
 
 **Planned changes:**
-- Remove video background from hero section
-- Replace with static botanical garden image showing multiple plants
-- Remove all overlay layers (dark overlays, gradients, semi-transparent layers)
-- Add text shadow effect to headline text for readability
-- Remove all dynamic color transitions and animated gradient effects
-- Ensure no solid color box is added behind headline text
+- Apply sage green background to Shop page while maintaining filters and product grid
+- Apply sage green background to Product Detail page while preserving all product information and functionality
+- Apply sage green background to Care Guide page while maintaining article cards and scroll animations
+- Apply sage green background to Checkout page while preserving multi-step form and order summary
+- Keep Home page completely unchanged with existing video background
 
-**User-visible outcome:** Users will see a clean, static botanical garden image as the hero background with readable text enhanced by subtle shadows, without any overlays or animations.
+**User-visible outcome:** Users will experience a consistent sage green background across Shop, Product Detail, Care Guide, and Checkout pages, while the Home page retains its current video background design.

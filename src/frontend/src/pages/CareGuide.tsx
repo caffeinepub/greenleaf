@@ -19,7 +19,7 @@ export default function CareGuide() {
   }, []);
 
   return (
-    <div className="min-h-screen pt-24 pb-12">
+    <div className="min-h-screen pt-24 pb-12 bg-sage-50">
       {/* Reading Progress Bar */}
       <div className="fixed top-0 left-0 right-0 h-1 bg-sage-200 z-50">
         <div
