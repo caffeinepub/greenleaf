@@ -2,10 +2,11 @@
   "kind": "feature_evidence_report",
   "features": [
     {
-      "featureId": "feature-in-the-loadinglandingpage-component-remove-the-white-background-from-the-floating-leaf-particles-rendered-on-the-canvas-so-they-blend-transparently-with-the-content-behind-them-ensure-the-canvas-and-any-leaf-particle-elements-use-a-transparent-background-no-white-fill-no-white-css-background-no-solid-background-color-so-the-leaf-floats-naturally-over-the-body-text",
-      "featureTitle": "In the LoadingLandingPage component, remove the white background from the floating leaf particles rendered on the canvas so they blend transparently with the content behind them. Ensure the canvas and any leaf particle elements use a transparent background (no white fill, no white CSS background, no solid background color) so the leaf floats naturally over the body text.",
+      "featureId": "feature-replace-the-full-screen-ocean-waves-video-hero-background-on-the-home-page-with-an-immersive-three-js-react-three-fiber-animated-forest-scene-the-scene-should-feature-layered-particle-systems-simulating-floating-dust-motes-and-light-rays-filtering-through-a-forest-canopy-animated-geometry-or-instanced-meshes-representing-foliage-and-tree-silhouettes-in-deep-greens-and-warm-earthy-browns-soft-dappled-light-effects-using-point-lights-or-directional-lights-with-gentle-animation-and-a-color-palette-of-rich-forest-greens-2d5a27-4a7c59-1a3a1a-warm-earthy-browns-6b4423-8b6914-and-soft-golden-light-accents-d4a843-f0e68c-at-low-opacity-the-animation-should-loop-continuously-and-subtly-without-being-distracting-all-existing-hero-text-cta-buttons-and-overlay-content-must-remain-readable-and-properly-z-indexed-above-the-3d-canvas",
+      "featureTitle": "Replace the full-screen ocean waves video hero background on the Home page with an immersive Three.js/React Three Fiber animated forest scene. The scene should feature: layered particle systems simulating floating dust motes and light rays filtering through a forest canopy, animated geometry or instanced meshes representing foliage and tree silhouettes in deep greens and warm earthy browns, soft dappled light effects using point lights or directional lights with gentle animation, and a color palette of rich forest greens (#2d5a27, #4a7c59, #1a3a1a), warm earthy browns (#6b4423, #8b6914), and soft golden light accents (#d4a843, #f0e68c at low opacity). The animation should loop continuously and subtly without being distracting. All existing hero text, CTA buttons, and overlay content must remain readable and properly z-indexed above the 3D canvas.",
       "files": [
-        "frontend/src/components/LoadingLandingPage.tsx"
+        "frontend/src/components/ForestScene.tsx",
+        "frontend/src/pages/Home.tsx"
       ],
       "components": [
         "core-infrastructure@1.0.2",

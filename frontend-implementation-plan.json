@@ -1,22 +1,38 @@
 {
   "kind": "implementation_plan",
   "version": "1.0",
-  "title": "Remove white background from floating leaf on landing page",
+  "title": "Replace homepage video background with animated forest scene",
   "requirements": [
     {
       "id": "REQ-1",
-      "summary": "Remove white background from floating leaf particles in LoadingLandingPage so they blend transparently with underlying content",
+      "summary": "Replace the full-screen ocean waves video hero background on the Home page with an immersive Three.js/React Three Fiber animated forest scene featuring layered particle systems, animated foliage geometry, and soft dappled lighting effects in a forest green and earthy brown palette, while preserving all existing hero overlay content.",
       "acceptanceCriteria": [
-        "The floating leaf on the loading/landing page has no visible white background box around it.",
-        "The canvas element rendering the leaf particles uses a transparent background.",
-        "The leaf floats naturally over underlying body text without obscuring it with any white fill.",
-        "No white rectangle or solid background is visible around any floating leaf particle."
+        "The ocean waves video element is fully removed from the Home page hero section",
+        "A Three.js/React Three Fiber canvas fills the full-screen hero area as the background",
+        "The scene renders visible animated particles (dust motes or light rays) with soft golden/amber coloring",
+        "Foliage or tree silhouette elements in deep greens and earthy browns are visible in the scene",
+        "Gentle ambient animation loops continuously without hard resets or stutters",
+        "The color palette uses forest greens, warm browns, and soft golden light accents",
+        "All hero overlay text (headline, subheadline, CTA buttons) remains fully readable on top of the 3D background",
+        "The canvas is responsive and fills the viewport on mobile, tablet, and desktop",
+        "Performance is acceptable — animation runs at a smooth frame rate on modern devices",
+        "No external video files or network requests are required for the background"
       ],
       "file_operations": [
         {
-          "path": "frontend/src/components/LoadingLandingPage.tsx",
+          "path": "frontend/package.json",
           "operation": "modify",
-          "description": "Modify the canvas configuration and leaf particle rendering logic to ensure the canvas background is fully transparent. Remove any white fill or background color from the canvas element itself and from individual leaf particle drawing operations. Ensure the canvas context uses transparent fills and that any image-based leaf particles are drawn with proper alpha channel handling so they float naturally over body text without white boxes."
+          "description": "Add @react-three/fiber, @react-three/drei, and three dependencies to support the Three.js animated forest scene canvas."
+        },
+        {
+          "path": "frontend/src/components/ForestScene.tsx",
+          "operation": "create",
+          "description": "Create a Three.js/React Three Fiber component that renders an immersive animated forest scene. The scene includes: a Canvas filling its container; layered particle systems using Points geometry to simulate floating dust motes and light rays with soft golden/amber colors (#d4a843, #f0e68c at low opacity); animated instanced meshes or geometry representing tree silhouettes and foliage in deep greens (#2d5a27, #4a7c59, #1a3a1a) and warm earthy browns (#6b4423, #8b6914); directional and point lights with gentle position/intensity animation to create dappled light effects; a continuous animation loop using useFrame to update particle positions, foliage sway, and light movement; and responsive camera settings that adapt to viewport dimensions. The component should export a single ForestScene component wrapping the Canvas."
+        },
+        {
+          "path": "frontend/src/pages/Home.tsx",
+          "operation": "modify",
+          "description": "Remove the existing full-screen video element and background video source from the hero section. Replace it with the ForestScene component as the hero background. Ensure the ForestScene canvas is positioned absolutely behind the hero overlay content (headline, tagline, CTA buttons, scroll indicator) with proper z-index layering so all text remains fully readable. Preserve all existing hero section content and structure. The ForestScene should fill the full hero container and be responsive across mobile, tablet, and desktop viewports."
         }
       ]
     }

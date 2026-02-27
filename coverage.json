@@ -1,7 +1,7 @@
 {
   "kind": "coverage_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T10:02:30.066Z",
+  "generatedAt": "2026-02-27T14:56:15.243Z",
   "sources": {
     "buildRequest": true,
     "implementationPlan": true
@@ -12,13 +12,16 @@
     "items": [
       {
         "id": "REQ-1",
-        "summary": "In the LoadingLandingPage component, remove the white background from the floating leaf particles rendered on the canvas so they blend transparently with the content behind them. Ensure the canvas and any leaf particle elements use a transparent background (no white fill, no white CSS background, no solid background color) so the leaf floats naturally over the body text.",
+        "summary": "Replace the full-screen ocean waves video hero background on the Home page with an immersive Three.js/React Three Fiber animated forest scene. The scene should feature: layered particle systems simulating floating dust motes and light rays filtering through a forest canopy, animated geometry or instanced meshes representing foliage and tree silhouettes in deep greens and warm earthy browns, soft dappled light effects using point lights or directional lights with gentle animation, and a color palette of rich forest greens (#2d5a27, #4a7c59, #1a3a1a), warm earthy browns (#6b4423, #8b6914), and soft golden light accents (#d4a843, #f0e68c at low opacity). The animation should loop continuously and subtly without being distracting. All existing hero text, CTA buttons, and overlay content must remain readable and properly z-indexed above the 3D canvas.",
         "status": "implemented",
         "plannedFiles": [
-          "frontend/src/components/LoadingLandingPage.tsx"
+          "frontend/package.json",
+          "frontend/src/components/ForestScene.tsx",
+          "frontend/src/pages/Home.tsx"
         ],
         "matchedFiles": [
-          "frontend/src/components/LoadingLandingPage.tsx"
+          "frontend/src/components/ForestScene.tsx",
+          "frontend/src/pages/Home.tsx"
         ]
       }
     ]
@@ -28,7 +31,8 @@
     "feature_evidence.json",
     "frontend-file-summaries.txt",
     "frontend-implementation-plan.json",
-    "frontend/src/components/LoadingLandingPage.tsx",
+    "frontend/src/components/ForestScene.tsx",
+    "frontend/src/pages/Home.tsx",
     "project_state.json",
     "scratch/component-selection.json",
     "spec.md",

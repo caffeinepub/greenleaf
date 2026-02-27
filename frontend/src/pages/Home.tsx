@@ -7,6 +7,7 @@ import { testimonials } from '../data/testimonials';
 import { useScrollAnimation } from '../hooks/useScrollAnimation';
 import { useParallax } from '../hooks/useParallax';
 import ProductCard from '../components/ProductCard';
+import ForestScene from '../components/ForestScene';
 
 export default function Home() {
   const benefitsRef = useRef<HTMLDivElement>(null);
@@ -15,17 +16,15 @@ export default function Home() {
   const categoriesRef = useRef<HTMLDivElement>(null);
   const bestSellersRef = useRef<HTMLDivElement>(null);
   const testimonialsRef = useRef<HTMLDivElement>(null);
-  
+
   const isBenefitsVisible = useScrollAnimation(benefitsRef);
   const isCareTipsVisible = useScrollAnimation(careTipsRef);
   const isPlantBenefitsVisible = useScrollAnimation(plantBenefitsRef);
   const isCategoriesVisible = useScrollAnimation(categoriesRef);
   const isBestSellersVisible = useScrollAnimation(bestSellersRef);
   const isTestimonialsVisible = useScrollAnimation(testimonialsRef);
-  
+
   const [email, setEmail] = useState('');
-  const [heroLoaded, setHeroLoaded] = useState(false);
-  const [videoError, setVideoError] = useState(false);
 
   const parallaxOffset = useParallax(0.3);
 
@@ -37,31 +36,30 @@ export default function Home() {
     setEmail('');
   };
 
-  const handleVideoError = () => {
-    setVideoError(true);
-    setHeroLoaded(true);
-  };
-
   const careTips = [
     {
       icon: '/assets/generated/icon-watering.dim_64x64.png',
       title: 'Watering',
-      description: 'Water when the top inch of soil feels dry. Overwatering is the most common mistake—less is often more.',
+      description:
+        'Water when the top inch of soil feels dry. Overwatering is the most common mistake—less is often more.',
     },
     {
       icon: '/assets/generated/icon-sunlight.dim_64x64.png',
       title: 'Lighting',
-      description: 'Most houseplants thrive in bright, indirect light. Rotate plants weekly for even growth.',
+      description:
+        'Most houseplants thrive in bright, indirect light. Rotate plants weekly for even growth.',
     },
     {
       icon: '/assets/generated/icon-soil.dim_64x64.png',
       title: 'Soil & Nutrients',
-      description: 'Use well-draining soil and fertilize monthly during growing season (spring and summer).',
+      description:
+        'Use well-draining soil and fertilize monthly during growing season (spring and summer).',
     },
     {
       icon: '/assets/generated/icon-temperature.dim_64x64.png',
       title: 'Temperature',
-      description: 'Keep plants in temperatures between 65-75°F. Avoid drafts and sudden temperature changes.',
+      description:
+        'Keep plants in temperatures between 65-75°F. Avoid drafts and sudden temperature changes.',
     },
   ];
 
@@ -69,68 +67,57 @@ export default function Home() {
     {
       icon: '/assets/generated/icon-air-purification.dim_64x64.png',
       title: 'Air Purification',
-      description: 'Plants naturally filter toxins and improve indoor air quality, creating a healthier living space.',
+      description:
+        'Plants naturally filter toxins and improve indoor air quality, creating a healthier living space.',
     },
     {
       icon: '/assets/generated/icon-stress-relief.dim_64x64.png',
       title: 'Stress Reduction',
-      description: 'Studies show that being around plants reduces stress levels and promotes mental well-being.',
+      description:
+        'Studies show that being around plants reduces stress levels and promotes mental well-being.',
     },
     {
       icon: '/assets/generated/icon-productivity.dim_64x64.png',
       title: 'Productivity Boost',
-      description: 'Indoor plants enhance focus and creativity, making them perfect for home offices and workspaces.',
+      description:
+        'Indoor plants enhance focus and creativity, making them perfect for home offices and workspaces.',
     },
     {
       icon: '/assets/generated/icon-wellness.dim_64x64.png',
       title: 'Overall Wellness',
-      description: 'Plants increase humidity, reduce fatigue, and create a calming atmosphere for better health.',
+      description:
+        'Plants increase humidity, reduce fatigue, and create a calming atmosphere for better health.',
     },
   ];
 
   return (
     <div className="overflow-x-hidden">
-      {/* Hero Section with Full-Screen Video Background */}
+      {/* Hero Section with Animated Forest Background */}
       <section className="relative h-screen flex items-center justify-center overflow-hidden">
-        {/* Full-Screen Autoplay Video Background */}
-        {!videoError ? (
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            onLoadedData={() => setHeroLoaded(true)}
-            onError={handleVideoError}
-            poster="/assets/generated/hero-botanical-garden.dim_1920x1080.png"
-            className="absolute inset-0 w-full h-full object-cover"
-          >
-            <source
-              src="https://videos.pexels.com/video-files/3571264/3571264-uhd_2560_1440_30fps.mp4"
-              type="video/mp4"
-            />
-          </video>
-        ) : (
-          <img
-            src="/assets/generated/hero-botanical-garden.dim_1920x1080.png"
-            alt="Botanical garden"
-            className="absolute inset-0 w-full h-full object-cover"
-          />
-        )}
+        {/* Three.js Forest Scene Background */}
+        <div className="absolute inset-0 z-0">
+          <ForestScene />
+        </div>
 
-        {/* Dark Gradient Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/40 to-black/60 z-[1]" />
+        {/* Subtle dark vignette overlay for text readability */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/25 to-black/55 z-[1]" />
+
+        {/* Radial glow from center — warm golden light */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none"
+          style={{
+            background:
+              'radial-gradient(ellipse 70% 55% at 50% 45%, rgba(180,140,60,0.12) 0%, transparent 70%)',
+          }}
+        />
 
         {/* Hero Content */}
-        <div
-          className={`relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto transition-opacity duration-1000 ${
-            heroLoaded ? 'opacity-100' : 'opacity-0'
-          }`}
-        >
-          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 animate-in slide-in-from-bottom-8 fade-in duration-1000">
+        <div className="relative z-10 text-center px-4 sm:px-6 max-w-4xl mx-auto animate-in fade-in slide-in-from-bottom-8 duration-1000">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 drop-shadow-lg">
             Bring Nature Into Your Life
           </h1>
-          <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-10 animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-200 leading-relaxed max-w-3xl mx-auto">
-            Transform your space with our curated collection of beautiful indoor plants. 
+          <p className="text-xl sm:text-2xl md:text-3xl text-white/95 mb-10 leading-relaxed max-w-3xl mx-auto drop-shadow-md animate-in slide-in-from-bottom-8 fade-in duration-1000 delay-200">
+            Transform your space with our curated collection of beautiful indoor plants.
             Embrace eco-friendly living and create your personal green sanctuary.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-in slide-in-from-bottom-8 fade-in delay-300 duration-1000">
@@ -292,9 +279,7 @@ export default function Home() {
                   <h3 className="text-xl font-semibold text-sage-800 mb-2 transition-colors duration-300 group-hover:text-sage-600">
                     {category.name}
                   </h3>
-                  <p className="text-foreground/60 text-sm">
-                    {category.description}
-                  </p>
+                  <p className="text-foreground/60 text-sm">{category.description}</p>
                 </div>
               </Link>
             ))}
@@ -404,18 +389,11 @@ export default function Home() {
               >
                 <div className="flex mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Heart
-                      key={i}
-                      className="w-5 h-5 text-sage-600 fill-sage-600"
-                    />
+                    <Heart key={i} className="w-5 h-5 text-sage-600 fill-sage-600" />
                   ))}
                 </div>
-                <p className="text-foreground/80 mb-4 italic">
-                  "{testimonial.quote}"
-                </p>
-                <p className="font-semibold text-sage-800">
-                  {testimonial.name}
-                </p>
+                <p className="text-foreground/80 mb-4 italic">"{testimonial.quote}"</p>
+                <p className="font-semibold text-sage-800">{testimonial.name}</p>
               </div>
             ))}
           </div>
@@ -429,20 +407,23 @@ export default function Home() {
             Join Our Plant Community
           </h2>
           <p className="text-lg text-foreground/70 mb-8">
-            Get exclusive tips, special offers, and plant care advice delivered to your inbox
+            Get exclusive tips, special offers, and plant care advice delivered to your inbox.
           </p>
-          <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+          <form
+            onSubmit={handleNewsletterSubmit}
+            className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
+          >
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Enter your email"
-              className="flex-1 px-6 py-3 rounded-full border border-sage-300 focus:outline-none focus:ring-2 focus:ring-sage-500 bg-white"
               required
+              className="flex-1 px-4 py-3 rounded-full border border-sage-300 bg-white focus:outline-none focus:ring-2 focus:ring-sage-500 focus:border-transparent text-foreground placeholder:text-foreground/40"
             />
             <button
               type="submit"
-              className="px-8 py-3 bg-sage-600 text-white rounded-full hover:bg-sage-700 transition-all duration-300 hover:scale-105 font-semibold"
+              className="px-6 py-3 bg-sage-600 text-white rounded-full hover:bg-sage-700 transition-colors duration-300 font-semibold whitespace-nowrap"
             >
               Subscribe
             </button>

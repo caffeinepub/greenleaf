@@ -1,36 +1,49 @@
 {
   "kind": "build_request",
-  "title": "Remove white background from floating leaf on landing page",
+  "title": "Replace homepage video background with animated forest scene",
+  "projectName": "GreenLeaf Shop",
   "priority": "normal",
   "requirements": [
     {
       "id": "REQ-1",
-      "text": "In the LoadingLandingPage component, remove the white background from the floating leaf particles rendered on the canvas so they blend transparently with the content behind them. Ensure the canvas and any leaf particle elements use a transparent background (no white fill, no white CSS background, no solid background color) so the leaf floats naturally over the body text.",
+      "text": "Replace the full-screen ocean waves video hero background on the Home page with an immersive Three.js/React Three Fiber animated forest scene. The scene should feature: layered particle systems simulating floating dust motes and light rays filtering through a forest canopy, animated geometry or instanced meshes representing foliage and tree silhouettes in deep greens and warm earthy browns, soft dappled light effects using point lights or directional lights with gentle animation, and a color palette of rich forest greens (#2d5a27, #4a7c59, #1a3a1a), warm earthy browns (#6b4423, #8b6914), and soft golden light accents (#d4a843, #f0e68c at low opacity). The animation should loop continuously and subtly without being distracting. All existing hero text, CTA buttons, and overlay content must remain readable and properly z-indexed above the 3D canvas.",
       "target": "frontend",
       "source": {
         "messageIds": [
-          "msg-8",
-          "msg-10"
+          "msg-recent-4",
+          "msg-recent-5"
         ],
         "quotes": [
-          "still in landing page there is leaf floating with the white background over the body text remove its white background"
+          "forest theme  something that fits the plant shop aesthetic sh greenery, earthy tones, soft light",
+          "I'll replace the ocean waves video background on the homepage with an immersive animated forest scene featuring lush greenery, earthy tones, and soft dappled light"
         ]
       },
       "acceptanceCriteria": [
-        "The floating leaf on the loading/landing page has no visible white background box around it.",
-        "The canvas element rendering the leaf particles uses a transparent background.",
-        "The leaf floats naturally over underlying body text without obscuring it with any white fill.",
-        "No white rectangle or solid background is visible around any floating leaf particle."
+        "The ocean waves video element is fully removed from the Home page hero section",
+        "A Three.js/React Three Fiber canvas fills the full-screen hero area as the background",
+        "The scene renders visible animated particles (dust motes or light rays) with soft golden/amber coloring",
+        "Foliage or tree silhouette elements in deep greens and earthy browns are visible in the scene",
+        "Gentle ambient animation loops continuously without hard resets or stutters",
+        "The color palette uses forest greens, warm browns, and soft golden light accents",
+        "All hero overlay text (headline, subheadline, CTA buttons) remains fully readable on top of the 3D background",
+        "The canvas is responsive and fills the viewport on mobile, tablet, and desktop",
+        "Performance is acceptable — animation runs at a smooth frame rate on modern devices",
+        "No external video files or network requests are required for the background"
       ]
     }
   ],
   "constraints": [
-    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui."
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui",
+    "Do not alter the backend — no backend changes are needed for this feature",
+    "Preserve all existing hero section content (headline, tagline, CTA buttons, scroll indicator) above the new background",
+    "The animated background must not require any external video files or CDN-hosted assets"
   ],
   "nonGoals": [
-    "Changing the leaf animation behavior or timing.",
-    "Modifying any other page or component besides LoadingLandingPage.",
-    "Altering the overall color theme or design tokens."
+    "Changing any other page backgrounds or sections beyond the Home page hero",
+    "Adding sound or audio to the forest scene",
+    "Replacing the LoadingLandingPage animation",
+    "Modifying the shop, product detail, checkout, or care guide pages",
+    "Adding new navigation items or page routes"
   ],
   "imageRequirements": {
     "required": [],

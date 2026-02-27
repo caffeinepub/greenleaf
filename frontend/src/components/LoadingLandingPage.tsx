@@ -1,66 +1,68 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 
-interface Particle {
+interface Shape {
   id: number;
-  x: number;
+  x: number;       // 0–100 (% of canvas)
   y: number;
+  vx: number;
+  vy: number;
   size: number;
-  speedX: number;
-  speedY: number;
   rotation: number;
   rotationSpeed: number;
+  sides: number;   // 3 = triangle, 4 = diamond, 6 = hexagon
   opacity: number;
+  pulsePhase: number;
+  pulseSpeed: number;
 }
 
 interface LoadingLandingPageProps {
   onComplete: () => void;
 }
 
-function generateParticles(count: number): Particle[] {
+// Sage green and beige palette (literal values for Canvas API)
+const COLORS = [
+  { r: 139, g: 157, b: 131 }, // sage green  #8B9D83
+  { r: 168, g: 184, b: 157 }, // light sage  #A8B89D
+  { r: 232, g: 223, b: 208 }, // beige       #E8DFD0
+  { r: 200, g: 190, b: 170 }, // warm beige  #C8BEAD
+  { r: 110, g: 130, b: 100 }, // deep sage   #6E8264
+];
+
+function generateShapes(count: number): Shape[] {
+  const sideOptions = [3, 4, 6];
   return Array.from({ length: count }, (_, i) => ({
     id: i,
     x: Math.random() * 100,
-    y: Math.random() * 100 + 10,
-    size: Math.random() * 28 + 14,
-    speedX: (Math.random() - 0.5) * 0.3,
-    speedY: -(Math.random() * 0.4 + 0.15),
-    rotation: Math.random() * 360,
-    rotationSpeed: (Math.random() - 0.5) * 1.2,
-    opacity: Math.random() * 0.45 + 0.15,
+    y: Math.random() * 100,
+    vx: (Math.random() - 0.5) * 0.12,
+    vy: (Math.random() - 0.5) * 0.10,
+    size: Math.random() * 22 + 10,
+    rotation: Math.random() * Math.PI * 2,
+    rotationSpeed: (Math.random() - 0.5) * 0.008,
+    sides: sideOptions[Math.floor(Math.random() * sideOptions.length)],
+    opacity: Math.random() * 0.35 + 0.12,
+    pulsePhase: Math.random() * Math.PI * 2,
+    pulseSpeed: Math.random() * 0.02 + 0.01,
   }));
 }
 
-/**
- * Creates a processed version of the leaf image with the white background removed.
- * Uses an offscreen canvas: draws the image, then applies a radial gradient mask
- * via 'destination-in' composite operation so only the leaf shape remains.
- */
-function createMaskedLeafCanvas(img: HTMLImageElement, size: number): HTMLCanvasElement {
-  const offscreen = document.createElement('canvas');
-  offscreen.width = size;
-  offscreen.height = size;
-  const ctx = offscreen.getContext('2d');
-  if (!ctx) return offscreen;
-
-  // Draw the leaf image
-  ctx.drawImage(img, 0, 0, size, size);
-
-  // Use 'destination-in' to keep only pixels where the mask is opaque.
-  // We draw a radial gradient ellipse as the mask — this removes the white
-  // rectangular background by only preserving the leaf-shaped center region.
-  ctx.globalCompositeOperation = 'destination-in';
-  const gradient = ctx.createRadialGradient(
-    size / 2, size / 2, size * 0.05,
-    size / 2, size / 2, size * 0.48
-  );
-  gradient.addColorStop(0, 'rgba(0,0,0,1)');
-  gradient.addColorStop(0.7, 'rgba(0,0,0,0.95)');
-  gradient.addColorStop(0.88, 'rgba(0,0,0,0.5)');
-  gradient.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, size, size);
-
-  return offscreen;
+function drawPolygon(
+  ctx: CanvasRenderingContext2D,
+  cx: number,
+  cy: number,
+  radius: number,
+  sides: number,
+  rotation: number
+) {
+  ctx.beginPath();
+  for (let i = 0; i < sides; i++) {
+    const angle = rotation + (i * Math.PI * 2) / sides;
+    const x = cx + radius * Math.cos(angle);
+    const y = cy + radius * Math.sin(angle);
+    if (i === 0) ctx.moveTo(x, y);
+    else ctx.lineTo(x, y);
+  }
+  ctx.closePath();
 }
 
 export default function LoadingLandingPage({ onComplete }: LoadingLandingPageProps) {
@@ -72,11 +74,9 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
 
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const animFrameRef = useRef<number>(0);
-  const particleStateRef = useRef<Particle[]>(generateParticles(18));
-  // Guard so onComplete is only ever called once
+  const shapesRef = useRef<Shape[]>(generateShapes(22));
   const completedRef = useRef(false);
-  // Cache of masked leaf canvases keyed by size (rounded to nearest 4px)
-  const maskedLeafCacheRef = useRef<Map<number, HTMLCanvasElement>>(new Map());
+  const timeRef = useRef(0);
 
   const triggerComplete = useCallback(() => {
     if (completedRef.current) return;
@@ -84,7 +84,7 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
     onComplete();
   }, [onComplete]);
 
-  // Canvas particle animation
+  // Canvas geometric animation
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
@@ -98,68 +98,88 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
     resize();
     window.addEventListener('resize', resize);
 
-    const leafImg = new Image();
-    leafImg.src = '/assets/generated/leaf-particles-sheet.dim_512x512.png';
-
     let running = true;
-
-    const getMaskedLeaf = (size: number): HTMLCanvasElement | null => {
-      if (!leafImg.complete || leafImg.naturalWidth === 0) return null;
-      // Round size to nearest 4px bucket to limit cache entries
-      const bucket = Math.round(size / 4) * 4;
-      if (!maskedLeafCacheRef.current.has(bucket)) {
-        maskedLeafCacheRef.current.set(bucket, createMaskedLeafCanvas(leafImg, bucket));
-      }
-      return maskedLeafCacheRef.current.get(bucket) ?? null;
-    };
 
     const draw = () => {
       if (!running) return;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-      particleStateRef.current.forEach(p => {
-        ctx.save();
-        const px = (p.x / 100) * canvas.width;
-        const py = (p.y / 100) * canvas.height;
-        ctx.globalAlpha = p.opacity;
-        ctx.translate(px, py);
-        ctx.rotate((p.rotation * Math.PI) / 180);
+      const shapes = shapesRef.current;
+      timeRef.current += 1;
 
-        const maskedLeaf = getMaskedLeaf(Math.round(p.size));
-
-        if (maskedLeaf) {
-          // Draw the pre-masked leaf — no white background
-          ctx.drawImage(maskedLeaf, -p.size / 2, -p.size / 2, p.size, p.size);
-        } else {
-          // Fallback: draw a simple green ellipse while image loads
-          ctx.fillStyle = 'rgba(72, 120, 72, 0.6)';
-          ctx.beginPath();
-          ctx.ellipse(0, 0, p.size / 2, p.size / 3.5, 0, 0, Math.PI * 2);
-          ctx.fill();
+      // Draw connecting lines between nearby shapes
+      for (let i = 0; i < shapes.length; i++) {
+        for (let j = i + 1; j < shapes.length; j++) {
+          const a = shapes[i];
+          const b = shapes[j];
+          const ax = (a.x / 100) * canvas.width;
+          const ay = (a.y / 100) * canvas.height;
+          const bx = (b.x / 100) * canvas.width;
+          const by = (b.y / 100) * canvas.height;
+          const dist = Math.sqrt((ax - bx) ** 2 + (ay - by) ** 2);
+          const maxDist = 160;
+          if (dist < maxDist) {
+            const lineOpacity = (1 - dist / maxDist) * 0.18;
+            const col = COLORS[1]; // light sage for lines
+            ctx.save();
+            ctx.globalAlpha = lineOpacity;
+            ctx.strokeStyle = `rgb(${col.r},${col.g},${col.b})`;
+            ctx.lineWidth = 0.8;
+            ctx.beginPath();
+            ctx.moveTo(ax, ay);
+            ctx.lineTo(bx, by);
+            ctx.stroke();
+            ctx.restore();
+          }
         }
+      }
+
+      // Draw shapes
+      shapes.forEach(s => {
+        const px = (s.x / 100) * canvas.width;
+        const py = (s.y / 100) * canvas.height;
+        const pulse = 1 + 0.12 * Math.sin(timeRef.current * s.pulseSpeed + s.pulsePhase);
+        const radius = s.size * pulse;
+        const col = randomColorForShape(s.id);
+
+        ctx.save();
+        ctx.globalAlpha = s.opacity;
+
+        // Filled polygon (very subtle)
+        drawPolygon(ctx, px, py, radius, s.sides, s.rotation);
+        ctx.fillStyle = `rgba(${col.r},${col.g},${col.b},0.18)`;
+        ctx.fill();
+
+        // Stroked polygon outline
+        drawPolygon(ctx, px, py, radius, s.sides, s.rotation);
+        ctx.strokeStyle = `rgb(${col.r},${col.g},${col.b})`;
+        ctx.lineWidth = 1.2;
+        ctx.stroke();
+
+        // Small dot at center
+        ctx.beginPath();
+        ctx.arc(px, py, 2, 0, Math.PI * 2);
+        ctx.fillStyle = `rgb(${col.r},${col.g},${col.b})`;
+        ctx.fill();
 
         ctx.restore();
 
         // Update position
-        p.x += p.speedX * 0.4;
-        p.y += p.speedY * 0.4;
-        p.rotation += p.rotationSpeed * 0.5;
+        s.x += s.vx;
+        s.y += s.vy;
+        s.rotation += s.rotationSpeed;
 
-        // Wrap around
-        if (p.y < -5) p.y = 105;
-        if (p.x < -5) p.x = 105;
-        if (p.x > 105) p.x = -5;
+        // Wrap around edges
+        if (s.x < -5) s.x = 105;
+        if (s.x > 105) s.x = -5;
+        if (s.y < -5) s.y = 105;
+        if (s.y > 105) s.y = -5;
       });
 
       animFrameRef.current = requestAnimationFrame(draw);
     };
 
-    // Start drawing immediately; image will render once loaded
     draw();
-    leafImg.onload = () => {
-      // Clear the cache so new masked versions are generated with the loaded image
-      maskedLeafCacheRef.current.clear();
-    };
 
     return () => {
       running = false;
@@ -170,14 +190,10 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
 
   // Orchestrate animation sequence
   useEffect(() => {
-    // Stage 1 – logo fades in
     const t1 = setTimeout(() => setLogoVisible(true), 300);
-    // Stage 2 – tagline appears
     const t2 = setTimeout(() => setTaglineVisible(true), 900);
-    // Stage 3 – subtext appears
     const t3 = setTimeout(() => setSubtextVisible(true), 1400);
 
-    // Progress bar fills from 600 ms → ~3 000 ms
     let progressInterval: ReturnType<typeof setInterval> | null = null;
     const progressStart = setTimeout(() => {
       setProgressWidth(0);
@@ -192,10 +208,7 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
       }, 40);
     }, 600);
 
-    // Stage 4 – begin exit fade/scale
     const t4 = setTimeout(() => setPhase('exit'), 3200);
-
-    // Stage 5 – exit animation has played (~700 ms); notify parent
     const t5 = setTimeout(() => triggerComplete(), 3950);
 
     return () => {
@@ -220,11 +233,11 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
         transitionTimingFunction: 'cubic-bezier(0.4, 0, 0.2, 1)',
       }}
     >
-      {/* Canvas for floating leaf particles — white backgrounds removed via offscreen canvas masking */}
+      {/* Canvas for abstract geometric animation */}
       <canvas
         ref={canvasRef}
         className="absolute inset-0 pointer-events-none"
-        style={{ opacity: 0.7 }}
+        style={{ opacity: 0.85 }}
       />
 
       {/* Radial glow behind logo */}
@@ -270,16 +283,15 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
       {/* Main content */}
       <div className="relative z-10 flex flex-col items-center gap-6 px-8 text-center">
 
-        {/* Central leaf logo */}
+        {/* Spinner replacing the leaf image */}
         <div
           className={`transition-all duration-1000 ${logoVisible ? 'opacity-100 scale-100' : 'opacity-0 scale-75'}`}
           style={{
-            animation: logoVisible ? 'leafBreathe 4s ease-in-out infinite' : 'none',
             transitionTimingFunction: 'cubic-bezier(0.34, 1.56, 0.64, 1)',
           }}
         >
-          <div className="relative">
-            {/* Soft glow ring behind image */}
+          <div className="relative flex items-center justify-center" style={{ width: '120px', height: '120px' }}>
+            {/* Soft glow behind spinner */}
             <div
               className="absolute inset-0 rounded-full"
               style={{
@@ -288,15 +300,39 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
                 transform: 'scale(1.3)',
               }}
             />
-            <img
-              src="/assets/generated/greenleaf-logo-leaf.dim_256x256.png"
-              alt="GreenLeaf Logo"
-              className="relative"
+            {/* Outer spinner ring */}
+            <div
+              className="absolute rounded-full"
               style={{
-                width: '120px',
-                height: '120px',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 8px 24px oklch(0.48 0.12 140 / 0.4))',
+                width: '110px',
+                height: '110px',
+                border: '3px solid oklch(0.88 0.05 140)',
+                borderTopColor: 'oklch(0.48 0.12 140)',
+                borderRightColor: 'oklch(0.58 0.10 140)',
+                animation: 'spin 1.4s linear infinite',
+              }}
+            />
+            {/* Inner spinner ring (counter-rotate) */}
+            <div
+              className="absolute rounded-full"
+              style={{
+                width: '80px',
+                height: '80px',
+                border: '2px solid oklch(0.90 0.04 100)',
+                borderTopColor: 'oklch(0.62 0.08 100)',
+                borderLeftColor: 'oklch(0.72 0.06 100)',
+                animation: 'spin 2s linear infinite reverse',
+              }}
+            />
+            {/* Center dot */}
+            <div
+              className="absolute rounded-full"
+              style={{
+                width: '14px',
+                height: '14px',
+                background: 'radial-gradient(circle, oklch(0.48 0.12 140) 0%, oklch(0.58 0.10 140) 100%)',
+                boxShadow: '0 0 12px oklch(0.48 0.12 140 / 0.5)',
+                animation: 'leafBreathe 2s ease-in-out infinite',
               }}
             />
           </div>
@@ -389,7 +425,7 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
         </div>
       </div>
 
-      {/* Bottom decorative leaves */}
+      {/* Bottom decorative glows */}
       <div className="absolute bottom-0 left-0 right-0 pointer-events-none overflow-hidden" style={{ height: '180px' }}>
         <div
           style={{
@@ -448,4 +484,9 @@ export default function LoadingLandingPage({ onComplete }: LoadingLandingPagePro
       </div>
     </div>
   );
+}
+
+// Deterministic color per shape id so it doesn't flicker each frame
+function randomColorForShape(id: number) {
+  return COLORS[id % COLORS.length];
 }

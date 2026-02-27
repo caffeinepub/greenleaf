@@ -1,14 +1,32 @@
 {
   "kind": "spec_vs_diff_report",
   "version": "1.0",
-  "generatedAt": "2026-02-27T10:02:30.063Z",
-  "summary": "The diff modifies frontend/src/components/LoadingLandingPage.tsx to implement a createMaskedLeafCanvas function that uses an offscreen canvas with a radial gradient mask and 'destination-in' composite operation to remove the white background from floating leaf particles. The canvas uses ctx.clearRect for transparent clearing. This directly addresses REQ-1's requirement to remove the white background from leaf particles on the canvas. No constrained files were modified. No hallucinated features are evident.",
-  "missing_requirements": [],
+  "generatedAt": "2026-02-27T14:56:15.239Z",
+  "summary": "The diff implements a Three.js/React Three Fiber animated forest scene to replace the ocean waves video background on the Home page. The ForestScene component is added with dust particle systems, light orbs, and tree silhouettes, and Home.tsx is updated to use it. Most requirements appear satisfied, but some specific color palette values and lighting requirements cannot be fully verified due to file truncation.",
+  "missing_requirements": [
+    {
+      "id": "REQ-1",
+      "requirement": "Soft dappled light effects using point lights or directional lights with gentle animation",
+      "reason": "The visible portion of ForestScene.tsx uses MeshLambertMaterial and particle orbs to simulate light, but no explicit point lights or directional lights with animation are visible in the truncated diff. Full confirmation is not possible.",
+      "evidence": [
+        "frontend/src/components/ForestScene.tsx"
+      ]
+    },
+    {
+      "id": "REQ-1",
+      "requirement": "Color palette specifically includes #2d5a27, #4a7c59, #1a3a1a (forest greens), #6b4423, #8b6914 (warm earthy browns), #d4a843, #f0e68c at low opacity (golden light accents)",
+      "reason": "The visible code uses '#4a2e12' for trunk color and '#e8c97a'/'#f5d87a' for particles, which are approximations but do not exactly match the specified hex values. Canopy colors are not visible due to truncation.",
+      "evidence": [
+        "frontend/src/components/ForestScene.tsx"
+      ]
+    }
+  ],
   "hallucinated_features": [],
-  "confidence": 0.88,
+  "confidence": 0.72,
   "changed_files": [
     "frontend-file-summaries.txt",
-    "frontend/src/components/LoadingLandingPage.tsx",
+    "frontend/src/components/ForestScene.tsx",
+    "frontend/src/pages/Home.tsx",
     "project_state.json"
   ]
 }
