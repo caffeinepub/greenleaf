@@ -1,0 +1,39 @@
+{
+  "kind": "build_request",
+  "title": "Remove white background from floating leaf on landing page",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "In the LoadingLandingPage component, remove the white background from the floating leaf particles rendered on the canvas so they blend transparently with the content behind them. Ensure the canvas and any leaf particle elements use a transparent background (no white fill, no white CSS background, no solid background color) so the leaf floats naturally over the body text.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-8",
+          "msg-10"
+        ],
+        "quotes": [
+          "still in landing page there is leaf floating with the white background over the body text remove its white background"
+        ]
+      },
+      "acceptanceCriteria": [
+        "The floating leaf on the loading/landing page has no visible white background box around it.",
+        "The canvas element rendering the leaf particles uses a transparent background.",
+        "The leaf floats naturally over underlying body text without obscuring it with any white fill.",
+        "No white rectangle or solid background is visible around any floating leaf particle."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not modify any files under frontend/src/hooks/useInternetIdentity.ts, frontend/src/hooks/useActor.ts, frontend/src/main.tsx, or frontend/src/components/ui."
+  ],
+  "nonGoals": [
+    "Changing the leaf animation behavior or timing.",
+    "Modifying any other page or component besides LoadingLandingPage.",
+    "Altering the overall color theme or design tokens."
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}
